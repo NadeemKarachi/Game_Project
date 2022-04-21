@@ -13,15 +13,14 @@ using namespace std;
 
 int main(){
 
-    string charname;
-    cin >> charname;
+    string filename;
+    cin>>filename;
 
-    ifstream input(charname);
+    ifstream input(filename);
 
     Game game;
 
-    if(!input.is_open())
-    {
+    if(!input.is_open()){
         cout<<"file not found!"<<endl;
         exit(0);
     }
@@ -29,16 +28,14 @@ int main(){
 
     string name, occupation, race, level, health;
 
-    for(int i=0;i<2;i++)
-    {
+    for(int i=0;i<2;i++){
         getline(input, occupation);
         getline(input, name);
         getline(input, race);
         getline(input, level);
         getline(input,health);
 
-        if(occupation == "Barbarian")
-        {
+        if(occupation == "Barbarian"){
             string weapon_name, weapon_damage, weapon_cost, stamina;
 
             getline(input, stamina);
@@ -53,8 +50,8 @@ int main(){
 // add the barbarian character to game
             game.AddCharacter(b);
 
-        }else if(occupation == "Mage")
-        {
+        }
+        else if(occupation == "Mage"){
             string mana;
             getline(input, mana);
 
@@ -65,8 +62,7 @@ int main(){
             string spell_num;
             getline(input, spell_num);
 
-            for(int i=0;i<stoi(spell_num);i++)
-            {
+            for(int i=0;i<stoi(spell_num);i++){
                 string spell_name, spell_damage, spell_cost;
                 getline(input, spell_name);
                 getline(input, spell_damage);
@@ -83,8 +79,7 @@ int main(){
     }
 
     int option = -1;
-    do
-    {
+    do{
         cout<<"Please choose an option:"<<endl;
         cout<<"1 - Next Turn "<<endl;
         cout<<"2 - Print All Characters"<<endl;
@@ -94,8 +89,7 @@ int main(){
         cout<<endl;
 
 
-        switch(option)
-        {
+        switch(option){
             case 1:
                 game.NextTurn();
                 break;
@@ -112,7 +106,8 @@ int main(){
         }
 
         cout<<endl;
-    }while(option != 3); //imadmashcream
+    }
+    while(option != 3); //imadmashcream
 
     return 0;
 }
