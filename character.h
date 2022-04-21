@@ -1,5 +1,6 @@
-#ifndef CHARACTER_H
-#define CHARACTER_H
+
+#ifndef FINAL_PROJ_CHARACTER_H
+#define FINAL_PROJ_CHARACTER_H
 
 #include <iostream>
 #include <string>
@@ -35,4 +36,4 @@ public:
 };
 
 
-#endif
+#endif //FINAL_PROJ_CHARACTER_H

@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include "mage.h"
@@ -73,4 +74,3 @@ void Mage:: Print()
         cout<<spells[i].name<<endl;
     }
 }
-

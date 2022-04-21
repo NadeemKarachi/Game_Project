@@ -1,5 +1,6 @@
-#ifndef MAGE_H
-#define MAGE_H
+
+#ifndef FINAL_PROJ_MAGE_H
+#define FINAL_PROJ_MAGE_H
 
 #include <iostream>
 #include <string>
@@ -39,5 +40,4 @@ public:
     void Print();
 };
 
-
-#endif
+#endif //FINAL_PROJ_MAGE_H

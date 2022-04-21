@@ -1,5 +1,7 @@
-#ifndef BARBARIAN_H
-#define BARBARIAN_H
+
+#ifndef FINAL_PROJ_BARBARIAN_H
+#define FINAL_PROJ_BARBARIAN_H
+
 
 #include <iostream>
 #include <string>
@@ -34,4 +36,5 @@ public:
 };
 
 
-#endif
+
+#endif //FINAL_PROJ_BARBARIAN_H

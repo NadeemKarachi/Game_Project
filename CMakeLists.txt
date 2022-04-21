@@ -3,4 +3,4 @@ project(final_proj)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(final_proj main.cpp game.cpp game.h barbarian.cpp barbarian.h mage.cpp mage.h character.cpp character.h)
+add_executable(final_proj main.cpp)
