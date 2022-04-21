@@ -112,7 +112,7 @@ int main(){
         }
 
         cout<<endl;
-    }while(option != 3);
+    }while(option != 3); //nadcream
 
     return 0;
 }
