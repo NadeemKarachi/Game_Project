@@ -1,5 +1,3 @@
 # ninja log v5
-0	421	6721940847433884	CMakeFiles/final_proj.dir/main.cpp.obj	5986795595ff5d2e
-3	228	6722756264536759	build.ninja	96608ed777c7579f
-3	350	6722756268701147	CMakeFiles/final_proj.dir/main.cpp.obj	5986795595ff5d2e
-2	357	6722758202008298	CMakeFiles/final_proj.dir/main.cpp.obj	5986795595ff5d2e
+3	349	6722784806438620	CMakeFiles/final_proj.dir/main.cpp.obj	5986795595ff5d2e
+3	228	6723036510544678	build.ninja	96608ed777c7579f

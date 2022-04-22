@@ -14,15 +14,15 @@ using namespace std;
 int main(){
 
     string filename;
-    cin>>filename;
+    cin >> filename;
 
     ifstream input(filename);
 
-    Game game;
+    Game g;
 
     if(!input.is_open()){
         cout<<"file not found!"<<endl;
-        exit(0);
+        return -1;
     }
 
 
@@ -44,11 +44,11 @@ int main(){
             getline(input, weapon_cost);
 
 // create a barbarian pointer object
-            Barbarian *b = new Barbarian(name, race, stoi(level), stoi(health), stoi(stamina));
+            Barbarian *B = new Barbarian(name, race, stoi(level), stoi(health), stoi(stamina));
 // equip the weapon
-            b->EquipWeapon(weapon_name, stoi(weapon_damage), stoi(weapon_cost));
+            B -> EquipWeapon(weapon_name, stoi(weapon_damage), stoi(weapon_cost));
 // add the barbarian character to game
-            game.AddCharacter(b);
+            g.AddCharacter(B);
 
         }
         else if(occupation == "Mage"){
@@ -57,7 +57,7 @@ int main(){
 
 
 // create a mage object
-            Mage *m = new Mage(name, race, stoi(level), stoi(health), stoi(mana));
+            Mage *M = new Mage(name, race, stoi(level), stoi(health), stoi(mana));
 
             string spell_num;
             getline(input, spell_num);
@@ -68,10 +68,10 @@ int main(){
                 getline(input, spell_damage);
                 getline(input, spell_cost);
 
-                m->AddSpell(spell_name, stoi(spell_damage), stoi(spell_cost));
+                M -> AddSpell(spell_name, stoi(spell_damage), stoi(spell_cost));
             }
 
-            game.AddCharacter(m);
+            g.AddCharacter(M);
         }
 
         string newline;
@@ -91,11 +91,11 @@ int main(){
 
         switch(option){
             case 1:
-                game.NextTurn();
+                g.NextTurn();
                 break;
 
             case 2:
-                game.Print();
+                g.Print();
                 break;
 
             case 3:
@@ -107,7 +107,7 @@ int main(){
 
         cout<<endl;
     }
-    while(option != 3); //imadmashcream
+    while(option != 3); //
 
     return 0;
 }

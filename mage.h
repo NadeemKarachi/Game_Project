@@ -40,4 +40,4 @@ public:
     void Print();
 };
 
-#endif //FINAL_PROJ_MAGE_H
+#endif

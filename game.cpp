@@ -8,22 +8,18 @@
 using namespace std;
 
 // constructor
-Game::Game() : current_turn(0), num_of_characters(0)
-{
-}
+Game::Game() : current_turn(0), num_of_characters(0){}
 
 // remove a character from the array
 void Game:: RemoveCharacter(int index)
 {
-    if(index < 0 || index >= num_of_characters)
-    {
+    if(index < 0 || index >= num_of_characters){
         cout<<"Invalid index!"<<endl;
-    }else
-    {
+    }
+    else{
 //Character *c = players[index];
 // loop to shift the players to left
-        for(int i=index;i<num_of_characters-1;i++)
-        {
+        for(int i=index;i<num_of_characters-1;i++){
             players[i] = players[i+1];
         }
 
@@ -33,25 +29,21 @@ void Game:: RemoveCharacter(int index)
 }
 
 // add a character to the array
-void Game:: AddCharacter(Character *c)
-{
-    if(num_of_characters == 2) // array full
-    {
+void Game:: AddCharacter(Character *c){
+    if(num_of_characters == 2) {
         cout<<"Character limit reached, please wait for the next game!"<<endl;
-    }else
-    {
+    }
+    else{
         players[num_of_characters] = c;
         num_of_characters++;
     }
 }
 
 // simulate a turn
-void Game:: NextTurn()
-{
+void Game:: NextTurn(){
     if(num_of_characters != 2) // validate number of players
         cout<<"Need more players!"<<endl;
-    else
-    {
+    else{
         current_turn++; // increment the current turn
 // player1 attacks player2
         players[0]->Attack(players[1]);
@@ -60,8 +52,7 @@ void Game:: NextTurn()
             cout<<"Player one wins!"<<endl;
             exit(0);
         }
-        else
-        {
+        else{
 // player2 attacks player1
             players[1]->Attack(players[0]);
 // check if player1 has lost
@@ -74,10 +65,8 @@ void Game:: NextTurn()
 }
 
 // display the details of the characters in the game
-void Game:: Print()
-{
-    for(int i=0;i<num_of_characters;i++)
-    {
+void Game::Print(){
+    for(int i=0;i<num_of_characters;i++){
         players[i]->Print();
         cout<<endl;
     }

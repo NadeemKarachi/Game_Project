@@ -31,10 +31,10 @@ public:
 
 // other functions
     void EquipWeapon(string name, int damage, int stamina_cost);
-    void Attack(Character *target);
+    void Attack(Character * target);
     void Print();
 };
 
 
 
-#endif //FINAL_PROJ_BARBARIAN_H
+#endif

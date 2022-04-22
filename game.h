@@ -21,12 +21,12 @@ public:
     void AddCharacter(Character *c);
     void NextTurn();
     void Print();
-    int getCharacters() {
+    int getCharacters(){
         return num_of_characters;
     }
-    int getTurn() {
+    int getTurn(){
         return current_turn;
     }
 };
 
-#endif //FINAL_PROJ_GAME_H
+#endif
