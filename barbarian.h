@@ -1,5 +1,7 @@
-#ifndef BARBARIAN_H
-#define BARBARIAN_H
+
+#ifndef FINAL_PROJ_BARBARIAN_H
+#define FINAL_PROJ_BARBARIAN_H
+
 
 #include <iostream>
 #include <string>
@@ -29,9 +31,10 @@ public:
 
 // other functions
     void EquipWeapon(string name, int damage, int stamina_cost);
-    void Attack(Character *target);
+    void Attack(Character * target);
     void Print();
 };
+
 
 
 #endif

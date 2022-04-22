@@ -1,11 +1,13 @@
+
 #include <iostream>
 #include <string>
+#include <utility>
 #include "barbarian.h"
 
 using namespace std;
 
 // constructor
-Barbarian::Barbarian(string name, string race, int level, int health, int stamina) : Character(name, race, level, health), stamina(stamina)
+Barbarian::Barbarian(string name, string race, int level, int health, int stamina) : Character(std::move(name), race, level, health), stamina(stamina)
 {}
 
 // getter
@@ -48,5 +50,5 @@ void Barbarian::Attack(Character *target)
 void Barbarian::Print()
 {
     Character::Print();
-    cout<<"Weapon: "<<active_weapon.name<<endl;
+    cout<<"Weapon: " << active_weapon.name << endl;
 }

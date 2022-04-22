@@ -1,5 +1,6 @@
-#ifndef GAME_H
-#define GAME_H
+
+#ifndef FINAL_PROJ_GAME_H
+#define FINAL_PROJ_GAME_H
 
 #include <iostream>
 #include <string>
@@ -20,8 +21,12 @@ public:
     void AddCharacter(Character *c);
     void NextTurn();
     void Print();
-    int getCharacters() { return num_of_characters;}
-    int getTurn() {return current_turn;}
+    int getCharacters(){
+        return num_of_characters;
+    }
+    int getTurn(){
+        return current_turn;
+    }
 };
 
 #endif
