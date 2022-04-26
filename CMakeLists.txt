@@ -3,4 +3,4 @@ project(final_proj)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(final_proj main.cpp)
+add_executable(final_proj main.cpp character.h Wizard.h Dwarf.h game.h)

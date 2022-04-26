@@ -1,9 +1,45 @@
+#pragma once
+#ifndef FINAL_PROJ_WIZARD_H
+#define FINAL_PROJ_WIZARD_H
 
 #include <iostream>
 #include <string>
-#include "mage.h"
+#include "character.h"
 
 using namespace std;
+
+struct spell
+{
+    string name;
+    int damage;
+    int mana_cost;
+};
+
+class Mage: public Character
+{
+private:
+    spell spells[10];
+    int numOfSpells = 0;
+    int mana = 100;
+    int active_Spell = 0;
+
+public:
+// constructors
+    Mage(string name, string race, int level, int health, int mana);
+
+// getters
+    int getMana() const;
+
+// setters
+    void SetMana(int mana);
+
+// other functions
+    int AddSpell(string spell_name, int spell_damage, int mana_cost);
+    void nextSpell();
+    void Attack(Character *target);
+    void Print();
+};
+
 
 // constructor
 Mage::Mage(string name , string race, int level, int health, int mana) : Character(name, race, level, health), mana(mana)
@@ -40,7 +76,7 @@ int Mage::AddSpell(string spell_name, int spell_damage, int mana_cost)
 }
 
 // function to set the next spell
-void Mage:: nextSpell()
+void Mage::nextSpell()
 {
     active_Spell++; // increment the active spell
 // reached beyond the last spell, reset the active to the first spell
@@ -65,12 +101,12 @@ void Mage::Attack(Character *target)
 }
 
 // display the details of mage
-void Mage:: Print()
-{
+void Mage::Print() {
     Character::Print();
-    cout<<"Spells: "<<endl;
-    for(int i=0;i<numOfSpells;i++)
-    {
-        cout<<spells[i].name<<endl;
+    cout << "Spells: " << endl;
+    for (int i = 0; i < numOfSpells; i++) {
+        cout << spells[i].name << endl;
     }
 }
+
+#endif

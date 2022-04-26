@@ -3,23 +3,54 @@
 #include <fstream>
 #include <cstdlib>
 
-#include "barbarian.h"
+#include "Dwarf.h"
 #include "character.h"
-#include "mage.h"
+#include "Wizard.h"
 #include "game.h"
 
 
 using namespace std;
 
 int main(){
+    Character vChar;
+    Game vGame;
+    Dwarf vDwarf;
+    string characChoice;
+    int characterChoice;
+    string charName;
 
-    string filename;
-    cin >> filename;
+    cout << "******WELCOME TO THE FIGHTING REALM******" << endl;
+    cout << "TO START PLAYING PLEASE SELECT A CHARACTER" << endl;
+    cout << "1. Dwarf" << endl << "2. Wizard" << endl << "3. Elf" << endl;
+    cin >> characterChoice;
+
+    if(characterChoice > 3 || characterChoice < 1){
+        cout << "Invalid selection!"<<endl;
+        return -1;
+    }
+    if(characterChoice ==1){
+        cout << "You have selected Dwarf!" << endl;
+        characChoice = "Dwarf";
+    }
+    else if(characterChoice == 2){
+        cout << "You have selected Wizard!" << endl;
+        characChoice = "Wizard";
+    }
+    else if(characterChoice == 3){
+        cout << "You have selected Elf!" << endl;
+        characChoice = "Elf";
+    }
+    vChar .SetRace(characChoice);
+    cout << "NAME YOUR " << characChoice << "!" << endl;
+    cin >> charName;
+    vChar.SetName(charName);
+
+    /* string filename;
+    cin>>filename;
 
     ifstream input(filename);
 
-    Game g;
-
+    Game game;
     if(!input.is_open()){
         cout<<"file not found!"<<endl;
         return -1;
@@ -48,7 +79,7 @@ int main(){
 // equip the weapon
             B -> EquipWeapon(weapon_name, stoi(weapon_damage), stoi(weapon_cost));
 // add the barbarian character to game
-            g.AddCharacter(B);
+            game.AddCharacter(B);
 
         }
         else if(occupation == "Mage"){
@@ -71,7 +102,7 @@ int main(){
                 M -> AddSpell(spell_name, stoi(spell_damage), stoi(spell_cost));
             }
 
-            g.AddCharacter(M);
+            game.AddCharacter(M);
         }
 
         string newline;
@@ -91,11 +122,11 @@ int main(){
 
         switch(option){
             case 1:
-                g.NextTurn();
+                game.NextTurn();
                 break;
 
             case 2:
-                g.Print();
+                game.Print();
                 break;
 
             case 3:
@@ -108,6 +139,6 @@ int main(){
         cout<<endl;
     }
     while(option != 3); //
-
+*/
     return 0;
 }
