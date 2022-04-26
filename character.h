@@ -26,7 +26,7 @@ public:
 
 // setter functions
     void SetName(string name);
-    void SetRace(string name);
+    void SetRace(string race);
     void SetLevel(int level);
     void SetHealth(int health);
 
@@ -44,7 +44,7 @@ Character::Character(){
 }
 
 // constructor
-Character::Character(string name_, string race_, int level, int health) : name(name_), race(race_), level(level), health(health)
+Character::Character(string name, string race, int level_, int health_)
 {}
 
 // getter functions
@@ -92,10 +92,10 @@ void Character::SetRace(string race_)
 void Character::Print()
 {
     cout<<"Character Status: "<<endl;
-    cout<<"Name: "<<name<<endl;
-    cout<<"Race: "<<race<<endl;
-    cout<<"Level: "<<level<<endl;
-    cout<<"Health: "<<health<<endl;
+    cout<<"Name: "<< getName() <<endl;
+    cout<<"Race: "<< getRace() <<endl;
+    cout<<"Level: "<< level <<endl;
+    cout<<"Health: "<< health <<endl;
 }
 
 #endif

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <fstream>
 #include <cstdlib>
 
 #include "Dwarf.h"
@@ -15,8 +14,10 @@ int main(){
     Character vChar;
     Game vGame;
     Dwarf vDwarf;
+    Wizard vWiz;
+
     string characChoice;
-    int characterChoice;
+    int characterChoice, weaponChoice;
     string charName;
 
     cout << "******WELCOME TO THE FIGHTING REALM******" << endl;
@@ -28,22 +29,77 @@ int main(){
         cout << "Invalid selection!"<<endl;
         return -1;
     }
+
+
     if(characterChoice ==1){
         cout << "You have selected Dwarf!" << endl;
         characChoice = "Dwarf";
+        cout << "NAME YOUR " << characChoice << "!" << endl;
+        cin >> charName;
+        vDwarf.SetName(charName);
+        vDwarf.SetRace(characChoice);
+        vDwarf.SetHealth(100);
+        vDwarf.SetLevel(80);
+
+
+        cout << "Please select a weapon for " << charName << endl;
+        cout << "1. Sword" << endl << "2. Axe" << endl << "3. Hammer" << endl;
+        cin >> weaponChoice;
+        if (weaponChoice == 1){
+            vDwarf.SetWeapon("Sword");
+        }
+        else if(weaponChoice==2) {
+            vDwarf.SetWeapon("Axe");
+        }
+        else if(weaponChoice==3) {
+            vDwarf.SetWeapon("Hammer");
+        }
+        else{ cout << "No weapon has been selected!";}
+
+        vDwarf.Print();
     }
     else if(characterChoice == 2){
         cout << "You have selected Wizard!" << endl;
         characChoice = "Wizard";
+        cout << "NAME YOUR " << characChoice << "!" << endl;
+        cin >> charName;
+        vWiz.SetName(charName);
+        vWiz.SetRace(characChoice);
+        vWiz.SetHealth(90);
+        vWiz.SetLevel(90);
+
+        cout << "Please select a spell for " << charName << endl;
+        cout << "1. Fire" << endl << "2. Strength" << endl << "3. Lightning" << endl;
+        cin >> weaponChoice;
+        if (weaponChoice == 1){
+            vDwarf.SetWeapon("Fire");
+        }
+        else if(weaponChoice==2) {
+            vDwarf.SetWeapon("Strength");
+        }
+        else if(weaponChoice==3) {
+            vDwarf.SetWeapon("Lightning");
+        }
+        else{ cout << "No spell has been selected!";}
+
+        vWiz.Print();
+        vChar.Print();
     }
     else if(characterChoice == 3){
         cout << "You have selected Elf!" << endl;
         characChoice = "Elf";
+        cout << "NAME YOUR " << characChoice << "!" << endl;
+        cin >> charName;
+        vWiz.SetName(charName);
+        vWiz.SetRace(characChoice);
+        vWiz.SetHealth(95);
+        vWiz.SetLevel(85);
+        vChar = vWiz;
+        vChar.Print();
     }
-    vChar .SetRace(characChoice);
-    cout << "NAME YOUR " << characChoice << "!" << endl;
-    cin >> charName;
-    vChar.SetName(charName);
+
+
+
 
     /* string filename;
     cin>>filename;

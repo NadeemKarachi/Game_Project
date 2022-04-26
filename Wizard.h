@@ -15,7 +15,7 @@ struct spell
     int mana_cost;
 };
 
-class Mage: public Character
+class Wizard: public Character
 {
 private:
     spell spells[10];
@@ -24,41 +24,39 @@ private:
     int active_Spell = 0;
 
 public:
-// constructors
-    Mage(string name, string race, int level, int health, int mana);
 
-// getters
+    Wizard();
+    Wizard(string name, string race, int level, int health, int mana);
     int getMana() const;
-
-// setters
     void SetMana(int mana);
-
-// other functions
     int AddSpell(string spell_name, int spell_damage, int mana_cost);
     void nextSpell();
     void Attack(Character *target);
     void Print();
 };
 
+Wizard::Wizard(){
+    spells[10];
+    numOfSpells = 0;
+    mana = 100;
+    active_Spell = 0;
+}
 
-// constructor
-Mage::Mage(string name , string race, int level, int health, int mana) : Character(name, race, level, health), mana(mana)
+Wizard::Wizard(string name , string race, int level, int health, int mana) : Character(name, race, level, health), mana(mana)
 {}
 
-// getter
-int Mage::getMana() const
+int Wizard::getMana() const
 {
     return mana;
 }
 
-//setter
-void Mage::SetMana(int mana_)
+void Wizard::SetMana(int mana_)
 {
     mana = mana_;
 }
 
 // function to insert spell into spells array
-int Mage::AddSpell(string spell_name, int spell_damage, int mana_cost)
+int Wizard::AddSpell(string spell_name, int spell_damage, int mana_cost)
 {
     if(numOfSpells == 10) // array full
     {
@@ -76,7 +74,7 @@ int Mage::AddSpell(string spell_name, int spell_damage, int mana_cost)
 }
 
 // function to set the next spell
-void Mage::nextSpell()
+void Wizard::nextSpell()
 {
     active_Spell++; // increment the active spell
 // reached beyond the last spell, reset the active to the first spell
@@ -85,7 +83,7 @@ void Mage::nextSpell()
 }
 
 // function to attack the target character
-void Mage::Attack(Character *target)
+void Wizard::Attack(Character *target)
 {
     if(numOfSpells == 0) // no spell
         cout<<"This mage has no spells!"<<endl;
@@ -101,7 +99,7 @@ void Mage::Attack(Character *target)
 }
 
 // display the details of mage
-void Mage::Print() {
+void Wizard::Print() {
     Character::Print();
     cout << "Spells: " << endl;
     for (int i = 0; i < numOfSpells; i++) {
