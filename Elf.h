@@ -39,6 +39,14 @@ public:
     double getConstitution() const;
 
     void setConstitution(int constitution_);
+
+    void setWisdom(int strength_);
+
+    double getWisdom() const;
+
+    void setCharisma(int charisma_);
+
+    double getCharisma() const;
 };
 
 Elf::Elf(): Character(){
@@ -96,6 +104,22 @@ void Elf::setConstitution(int constitution_){
 double Elf::getConstitution() const {
     return Character::getIntelligence();
 }
+void Elf::setWisdom(int wisdom_){
+    Character::setStrength(wisdom_);
+}
+
+double Elf::getWisdom() const {
+    return Character::getWisdom();
+}
+
+void Elf::setCharisma(int charisma_){
+    Character::setCharisma(charisma_);
+}
+
+double Elf::getCharisma() const {
+    return Character::getCharisma();
+}
+
 void Elf::Print(){
     Character::Print();
     cout<<"Weapon: " << getWeapon() << endl;

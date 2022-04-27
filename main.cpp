@@ -25,16 +25,22 @@ int main(){
 
     cout << "******WELCOME TO THE FIGHTING REALM******" << endl;
     cout << "TO START PLAYING PLEASE SELECT A CHARACTER" << endl;
-    cout << "1. Dwarf" << endl << "2. Wizard" << endl << "3. Elf" << endl;
-    cin >> characterChoice;
 
-    if(characterChoice > 3 || characterChoice < 1){
-        cout << "Invalid selection!"<<endl;
-        return -1;
+    //Input Validation
+    while(true){
+        cout << "1. Dwarf" << endl << "2. Wizard" << endl << "3. Elf" << endl;
+        cin >> characterChoice;
+        if(characterChoice > 3 || characterChoice < 1){
+            cout << "Invalid selection! Please Try Again"<<endl;
+            //Clears prev input if invalid
+            cin.clear();
+            cin.ignore(1000000, '\n');
+        }
+        else
+            break;
     }
 
-
-    if(characterChoice ==1){
+    if(characterChoice == 1){
         cout << "You have selected Dwarf!" << endl;
         characChoice = "Dwarf";
         cout << "NAME YOUR " << characChoice << "!" << endl;
@@ -114,7 +120,6 @@ int main(){
         vElf.setStrength(10);
         vElf.Print();
     }
-
 
 
 
