@@ -50,21 +50,28 @@ int main(){
         vDwarf.SetHealth(100);
         vDwarf.SetLevel(80);
 
-
-        cout << "Please select a weapon for " << charName << endl;
-        cout << "1. Sword" << endl << "2. Axe" << endl << "3. Hammer" << endl;
-        cin >> weaponChoice;
-        if (weaponChoice == 1){
-            vDwarf.SetWeapon("Sword");
+        while(true) {
+            cout << "Please select a weapon for " << charName << endl;
+            cout << "1. Sword" << endl << "2. Axe" << endl << "3. Hammer" << endl;
+            cin >> weaponChoice;
+            if (weaponChoice == 1) {
+                vDwarf.SetWeapon("Sword");
+                break;
+            }
+            else if (weaponChoice == 2) {
+                vDwarf.SetWeapon("Axe");
+                break;
+            }
+            else if (weaponChoice == 3) {
+                vDwarf.SetWeapon("Hammer");
+                break;
+            }
+            else {
+                cout << "INVALID STATEMENT, Try again!";
+                cin.clear();
+                cin.ignore(1000000, '\n');
+            }
         }
-        else if(weaponChoice==2) {
-            vDwarf.SetWeapon("Axe");
-        }
-        else if(weaponChoice==3) {
-            vDwarf.SetWeapon("Hammer");
-        }
-        else{ cout << "No weapon has been selected!";}
-
         vDwarf.Print();
     }
     else if(characterChoice == 2){
