@@ -111,7 +111,7 @@ int main(){
             vElf.SetWeapon("Javelin");
         }
         else{ cout << "No weapon has been selected!";}
-
+        vElf.setStrength(10);
         vElf.Print();
     }
 

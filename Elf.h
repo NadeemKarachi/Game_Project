@@ -1,10 +1,6 @@
-
-
 #ifndef FINAL_PROJ_ELF_H
 #define FINAL_PROJ_ELF_H
 #pragma once
-
-
 
 #include <iostream>
 #include <string>
@@ -27,10 +23,10 @@ public:
     void SetWeapon(string weapon_);
     void SetStamina(int stamina_);
     //void Attack(Character *target);
-
     void Print();
+    void setStrength(int strength_);
 
-
+    double getStrength() const;
 };
 
 Elf::Elf(): Character(){
@@ -57,9 +53,17 @@ void Elf::SetWeapon(string weapon_){
 void Elf::SetStamina(int stamina_){
     stamina = stamina_;
 }
+void Elf::setStrength(int strength_){
+    Character::setStrength(strength_);
+}
+
+double Elf::getStrength() const {
+    return Character::getStrength()*.8;
+}
 
 void Elf::Print(){
     Character::Print();
     cout<<"Weapon: " << getWeapon() << endl;
+    cout<<"Attributes " << Elf::getStrength();
 }
 #endif //FINAL_PROJ_ELF_H

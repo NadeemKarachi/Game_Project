@@ -12,6 +12,20 @@ private:
     string race;
     int level;
     int health;
+    //Attack Damage
+    int strength;
+    //Health
+    int constitution;
+    //Dodge attacks
+    int dexterity;
+    //Magic Damage / Resistance
+    int intelligence; //TODO: Add Intelligence functionality
+    //Insight
+    int wisdom; //TODO: Add wisdom functionality
+    //Speech level
+    int charisma; //TODO: Add charisma functionality
+    //XP
+    double xp; //TODO: Set XP Functionality
 
 public:
 // constructors
@@ -23,17 +37,33 @@ public:
     string getRace() const;
     int getLevel() const;
     int getHealth() const;
+    int getStrength() const;
+    int getConstitution() const;
+    int getDexterity() const;
+    int getIntelligence() const;
+    int getWisdom() const;
+    int getCharisma() const;
+    double getXp() const;
 
-// setter functions
+
+    // setter functions
     void SetName(string name);
     void SetRace(string race);
     void SetLevel(int level);
     void SetHealth(int health);
+    void setStrength(int strength);
+    void setConstitution(int constitution);
+    void setDexterity(int dexterity);
+    void setIntelligence(int intelligence);
+    void setWisdom(int wisdom);
+    void setCharisma(int charisma);
+    void setXp(double xp);
 
-// other functions
+    // other functions
     virtual void Print();
     //virtual void Attack(Character * target) = 0;
 
+    void setStrength() const;
 };
 
 Character::Character(){
@@ -96,6 +126,63 @@ void Character::Print()
     cout<<"Race: "<< getRace() <<endl;
     cout<<"Level: "<< level <<endl;
     cout<<"Health: "<< health <<endl;
+}
+
+//Attributes Getters and Setters
+int Character::getStrength() const {
+    return strength;
+}
+
+void Character::setStrength(int strength) {
+    Character::strength = strength;
+}
+
+int Character::getConstitution() const {
+    return constitution;
+}
+
+void Character::setConstitution(int constitution) {
+    Character::constitution = constitution;
+}
+
+int Character::getDexterity() const {
+    return dexterity;
+}
+
+void Character::setDexterity(int dexterity) {
+    Character::dexterity = dexterity;
+}
+
+int Character::getIntelligence() const {
+    return intelligence;
+}
+
+void Character::setIntelligence(int intelligence) {
+    Character::intelligence = intelligence;
+}
+
+int Character::getWisdom() const {
+    return wisdom;
+}
+
+void Character::setWisdom(int wisdom) {
+    Character::wisdom = wisdom;
+}
+
+int Character::getCharisma() const {
+    return charisma;
+}
+
+void Character::setCharisma(int charisma) {
+    Character::charisma = charisma;
+}
+
+double Character::getXp() const {
+    return xp;
+}
+
+void Character::setXp(double xp) {
+    Character::xp = xp;
 }
 
 #endif
