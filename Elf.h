@@ -123,6 +123,6 @@ double Elf::getCharisma() const {
 void Elf::Print(){
     Character::Print();
     cout<<"Weapon: " << getWeapon() << endl;
-    cout<<"Attributes " << Elf::getStrength();
+    cout<<"Attributes: " << Elf::getStrength();
 }
 #endif //FINAL_PROJ_ELF_H

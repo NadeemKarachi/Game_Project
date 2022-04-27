@@ -84,20 +84,26 @@ int main(){
         vWiz.SetHealth(90);
         vWiz.SetLevel(90);
 
-        cout << "Please select a spell for " << charName << endl;
-        cout << "1. Fire" << endl << "2. Strength" << endl << "3. Lightning" << endl;
-        cin >> weaponChoice;
-        if (weaponChoice == 1){
-            vDwarf.SetWeapon("Fire");
+        while(true) {
+            cout << "Please select a spell for " << charName << endl;
+            cout << "1. Fire" << endl << "2. Strength" << endl << "3. Lightning" << endl;
+            cin >> weaponChoice;
+            if (weaponChoice == 1) {
+                vDwarf.SetWeapon("Fire");
+                break;
+            }
+            else if (weaponChoice == 2) {
+                vDwarf.SetWeapon("Strength");
+                break;
+            }
+            else if (weaponChoice == 3) {
+                vDwarf.SetWeapon("Lightning");
+                break;
+            }
+            else { cout << "No spell has been selected!";
+                cin.clear();
+                cin.ignore(1000000, '\n');}
         }
-        else if(weaponChoice==2) {
-            vDwarf.SetWeapon("Strength");
-        }
-        else if(weaponChoice==3) {
-            vDwarf.SetWeapon("Lightning");
-        }
-        else{ cout << "No spell has been selected!";}
-
         vWiz.Print();
     }
     else if(characterChoice == 3){
@@ -110,21 +116,28 @@ int main(){
         vElf.SetHealth(95);
         vElf.SetLevel(85);
 
-
-        cout << "Please select a weapon for " << charName << endl;
-        cout << "1. Bow&Arrow" << endl << "2. Sword" << endl << "3. Javelin" << endl;
-        cin >> weaponChoice;
-        if (weaponChoice == 1){
-            vElf.SetWeapon("Bow&Arrow");
+        while(true) {
+            cout << "Please select a weapon for " << charName << endl;
+            cout << "1. Bow&Arrow" << endl << "2. Sword" << endl << "3. Javelin" << endl;
+            cin >> weaponChoice;
+            if (weaponChoice == 1) {
+                vElf.SetWeapon("Bow&Arrow");
+                break;
+            }
+            else if (weaponChoice == 2) {
+                vElf.SetWeapon("Sword");
+                break;
+            }
+            else if (weaponChoice == 3) {
+                vElf.SetWeapon("Javelin");
+                break;
+            }
+            else { cout << "No weapon has been selected!";
+                cin.clear();
+                cin.ignore(1000000, '\n');
+            }
+            vElf.setStrength(10);
         }
-        else if(weaponChoice==2) {
-            vElf.SetWeapon("Sword");
-        }
-        else if(weaponChoice==3) {
-            vElf.SetWeapon("Javelin");
-        }
-        else{ cout << "No weapon has been selected!";}
-        vElf.setStrength(10);
         vElf.Print();
     }
 
