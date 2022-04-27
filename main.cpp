@@ -6,6 +6,7 @@
 #include "character.h"
 #include "Wizard.h"
 #include "game.h"
+#include "Elf.h"
 
 
 using namespace std;
@@ -15,6 +16,8 @@ int main(){
     Game vGame;
     Dwarf vDwarf;
     Wizard vWiz;
+    Elf vElf;
+
 
     string characChoice;
     int characterChoice, weaponChoice;
@@ -83,19 +86,33 @@ int main(){
         else{ cout << "No spell has been selected!";}
 
         vWiz.Print();
-        vChar.Print();
     }
     else if(characterChoice == 3){
         cout << "You have selected Elf!" << endl;
         characChoice = "Elf";
         cout << "NAME YOUR " << characChoice << "!" << endl;
         cin >> charName;
-        vWiz.SetName(charName);
-        vWiz.SetRace(characChoice);
-        vWiz.SetHealth(95);
-        vWiz.SetLevel(85);
-        vChar = vWiz;
-        vChar.Print();
+        vElf.SetName(charName);
+        vElf.SetRace(characChoice);
+        vElf.SetHealth(95);
+        vElf.SetLevel(85);
+
+
+        cout << "Please select a weapon for " << charName << endl;
+        cout << "1. Bow&Arrow" << endl << "2. Sword" << endl << "3. Javelin" << endl;
+        cin >> weaponChoice;
+        if (weaponChoice == 1){
+            vElf.SetWeapon("Bow&Arrow");
+        }
+        else if(weaponChoice==2) {
+            vElf.SetWeapon("Sword");
+        }
+        else if(weaponChoice==3) {
+            vElf.SetWeapon("Javelin");
+        }
+        else{ cout << "No weapon has been selected!";}
+
+        vElf.Print();
     }
 
 
