@@ -27,6 +27,18 @@ public:
     void setStrength(int strength_);
 
     double getStrength() const;
+
+    void setDexterity(int dexterity);
+
+    double getDexterity() const;
+
+    double getIntelligence() const;
+
+    void setIntelligence(int intelligence_);
+
+    double getConstitution() const;
+
+    void setConstitution(int constitution_);
 };
 
 Elf::Elf(): Character(){
@@ -61,6 +73,29 @@ double Elf::getStrength() const {
     return Character::getStrength()*.8;
 }
 
+void Elf::setDexterity(int dexterity_){
+    Character::setDexterity(dexterity_);
+}
+
+double Elf::getDexterity() const {
+    return Character::getDexterity();
+}
+
+void Elf::setIntelligence(int intelligence_){
+    Character::setIntelligence(intelligence_);
+}
+
+double Elf::getIntelligence() const {
+    return Character::getIntelligence()*1.2;
+}
+
+void Elf::setConstitution(int constitution_){
+    Character::setIntelligence(constitution_);
+}
+
+double Elf::getConstitution() const {
+    return Character::getIntelligence();
+}
 void Elf::Print(){
     Character::Print();
     cout<<"Weapon: " << getWeapon() << endl;
