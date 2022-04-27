@@ -138,6 +138,7 @@ int main(){
             }
             vElf.setStrength(10);
         }
+
         vElf.Print();
     }
 
