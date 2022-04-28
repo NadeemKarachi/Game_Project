@@ -112,6 +112,8 @@ int main(){
                 }
             }
             vHum.Print();
+            vChar = vHum;
+
             string weapon_name;
             int weapon_cost;
             int weapon_damage;
@@ -181,6 +183,7 @@ int main(){
                 break;
 
             case 3:
+                cout << "THANK YOU FOR PLAYING!" << endl;
                 exit(0);
 
             default:

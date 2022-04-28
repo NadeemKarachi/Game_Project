@@ -7,6 +7,7 @@
 #include "character.h"
 #include "Dwarf.h"
 #include "Human.h"
+#include "Elf.h"
 
 using namespace std;
 
@@ -40,7 +41,7 @@ void Game:: RemoveCharacter(int index)
         cout<<"Invalid index!"<<endl;
     }
     else{
- //Character *c = players[index];
+   //Character *c = players[index];
 // loop to shift the players to left
         for(int i=index;i<num_of_characters-1;i++){
             players[i] = players[i+1];
@@ -90,7 +91,8 @@ void Game:: NextTurn(){
 // display the details of the characters in the game
 void Game::Print(){
     for(int i=0;i<num_of_characters;i++){
-        players[i]->Print();
+        players[i]-> Character::Print();
+
         cout<<endl;
     }
 }
