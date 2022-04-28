@@ -47,7 +47,7 @@ int main(){
         if (characterChoice == 1) {
             cout << "You have selected Dwarf!" << endl;
             characChoice = "Dwarf";
-            cout << "NAME YOUR " << characChoice << "!" << endl;
+            cout << "GIVE A NAME TO THE " << characChoice << "!" << endl;
             cin >> charName;
             vDwarf.SetName(charName);
             vDwarf.SetRace(characChoice);
@@ -153,12 +153,16 @@ int main(){
             vElf.Print();
             i++;
         }
+        cout << endl;
+        if(i<3){
+        cout <<"PLEASE SELECT YOUR OPPONENT: "<<endl;}
     }
     int option = -1;
+    int c = 1;
     do{
         cout<<"Please choose an option:"<<endl;
 
-        cout<<"1 - Next Turn "<<endl;
+        cout<<"1 - Start Round " << c << endl;
         cout<<"2 - Print All Characters"<<endl;
         cout<<"3 - Exit"<<endl;
 
@@ -169,6 +173,7 @@ int main(){
         switch(option){
             case 1:
                 vGame.NextTurn();
+                c++;
                 break;
 
             case 2:

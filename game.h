@@ -69,7 +69,7 @@ void Game:: NextTurn(){
     else{
         current_turn++; // increment the current turn
 // player1 attacks player2
-      players[0]->Attack(players[1]);
+      //players[0]->Attack(players[1]);
 // check if player1 has lost
         if(players[1]->getHealth() < 0){
             cout<<"Player one wins!"<<endl;
@@ -77,7 +77,7 @@ void Game:: NextTurn(){
         }
         else{
 // player2 attacks player1
-           players[1]->Attack(players[0]);
+          // players[1]->Attack(players[0]);
 // check if player1 has lost
             if(players[0]->getHealth() < 0){
                 cout<<"Player two wins!"<<endl;

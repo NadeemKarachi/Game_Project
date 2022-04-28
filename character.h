@@ -62,7 +62,7 @@ public:
     // other functions
     virtual void Print();
 
-    virtual void Attack(Character *target) =0;
+    //virtual void Attack(Character *target) =0;
 
 
 
