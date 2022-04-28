@@ -58,12 +58,14 @@ public:
     void setWisdom(int wisdom);
     void setCharisma(int charisma);
     void setXp(double xp);
-
+    void setStrength() const;
     // other functions
     virtual void Print();
-    //virtual void Attack(Character * target) = 0;
 
-    void setStrength() const;
+    virtual void Attack(Character *target) =0;
+
+
+
 };
 
 Character::Character(){
@@ -184,5 +186,8 @@ double Character::getXp() const {
 void Character::setXp(double xp) {
     Character::xp = xp;
 }
+
+
+
 
 #endif

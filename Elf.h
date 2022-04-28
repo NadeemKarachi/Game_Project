@@ -22,7 +22,7 @@ public:
     string getWeapon() const;
     void SetWeapon(string weapon_);
     void SetStamina(int stamina_);
-    //void Attack(Character *target);
+    void Attack(Character *target);
     void Print();
     void setStrength(int strength_);
 

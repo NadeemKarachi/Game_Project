@@ -14,6 +14,8 @@ class Human : public Character{
 private:
     string weapon;
     int stamina ;
+    int damage;
+    int stamina_cost;
 
 public:
     Human();
@@ -22,7 +24,7 @@ public:
     string getWeapon() const;
     void SetWeapon(string weapon_);
     void SetStamina(int stamina_);
-    //void EquipWeapon(string name, int damage, int stamina_cost);
+    void EquipWeapon(string name, int damage, int stamina_cost);
     void Attack(Character *target);
     void Print();
 
@@ -54,10 +56,25 @@ void Human::SetStamina(int stamina_){
     stamina = stamina_;
 }
 
+void Human::EquipWeapon(string name, int damage_, int stamina_cost_) {
+    getWeapon() = name;
+    damage = damage_;
+    stamina_cost = stamina_cost_;
+
+}
+
+void Human::Attack(Character *target)
+{
+    target->SetHealth(target->getHealth() - damage); // decrement the health of target by weapon damage
+// display the message
+    cout<<getName()<<" attacked "<<target->getName()<<" with a weapon "<< getWeapon() <<", dealing "<< damage <<" damage."<<endl;
+}
 
 void Human::Print(){
     Character::Print();
     cout<<"Weapon: " << getWeapon() << endl;
 }
+
+
 
 #endif
