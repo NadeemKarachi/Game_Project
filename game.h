@@ -6,7 +6,7 @@
 #include <string>
 #include "character.h"
 #include "Dwarf.h"
-#include "Wizard.h"
+#include "Human.h"
 
 using namespace std;
 
