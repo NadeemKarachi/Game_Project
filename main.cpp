@@ -8,14 +8,13 @@
 #include "Human.h"
 #include "game.h"
 #include "Elf.h"
-
+Dwarf createDwarf(bool isGenerated);
 
 using namespace std;
 
 int main(){
     Character vChar;
     Game vGame;
-    Dwarf vDwarf;
     Human vHum;
     Elf vElf;
 
@@ -45,43 +44,14 @@ int main(){
         }
 
         if (characterChoice == 1) {
-            cout << "You have selected Dwarf!" << endl;
-            characChoice = "Dwarf";
-            cout << "GIVE A NAME TO THE " << characChoice << "!" << endl;
-            cin >> charName;
-            vDwarf.SetName(charName);
-            vDwarf.SetRace(characChoice);
-            vDwarf.SetHealth(100);
-            vDwarf.SetLevel(80);
-
-            while (true) {
-                cout << "Please select a weapon for " << charName << endl;
-                cout << "1. Sword" << endl << "2. Axe" << endl << "3. Hammer" << endl;
-                cin >> weaponChoice;
-                if (weaponChoice == 1) {
-                    vDwarf.SetWeapon("Sword");
-                    break;
-                } else if (weaponChoice == 2) {
-                    vDwarf.SetWeapon("Axe");
-                    break;
-                } else if (weaponChoice == 3) {
-                    vDwarf.SetWeapon("Hammer");
-                    break;
-                } else {
-                    cout << "INVALID STATEMENT, Try again!";
-                    cin.clear();
-                    cin.ignore(1000000, '\n');
-                }
-            }
-            vDwarf.Print();
-
-            string weapon_name;
+            Dwarf vDwarf = createDwarf(false);
+            /*string weapon_name;
             int weapon_cost;
             int weapon_damage;
             Dwarf *d = new Dwarf(name, race, (level), (health), (stamina), weapon);
             d->EquipWeapon(weapon_name, (weapon_damage), (weapon_cost));
             vGame.AddCharacter(d);
-            i++;
+            i++;*/
         }
         else if (characterChoice == 2) {
             cout << "You have selected Human!" << endl;
@@ -115,13 +85,13 @@ int main(){
             vHum.Print();
             vChar = vHum;
 
-            string weapon_name;
+            /*string weapon_name;
             int weapon_cost;
             int weapon_damage;
             Human *h = new Human(name, race, (level), (health), (stamina), weapon);
             h->EquipWeapon(weapon_name, (weapon_damage), (weapon_cost));
             vGame.AddCharacter(h);
-            i++;
+            i++;*/
         }
         else if (characterChoice == 3) {
             cout << "You have selected Elf!" << endl;
@@ -199,4 +169,49 @@ int main(){
     while(option != 3); //
 
     return 0;
+}
+
+Dwarf createDwarf(bool isGenerated){
+    Dwarf vDwarf;
+    string charName;
+    int weaponChoice;
+
+    if(isGenerated)
+        charName = "Enemy Dwarf";
+
+    else{
+        cout << "You have selected Dwarf!" << endl;
+        cout << "GIVE A NAME TO THE DWARF!" << endl;
+        cin >> charName;
+    }
+
+    vDwarf.SetName(charName);
+    vDwarf.SetRace("Dwarf");
+    vDwarf.SetHealth(100);
+    vDwarf.SetLevel(80);
+
+    while (true) {
+        if(isGenerated)
+            weaponChoice = rand() % 100;
+        else{
+            cout << "Please select a weapon for " << charName << endl;
+            cout << "1. Sword" << endl << "2. Axe" << endl << "3. Hammer" << endl;
+            cin >> weaponChoice;
+        }
+        if (weaponChoice == 1) {
+            vDwarf.SetWeapon("Sword");
+            break;
+        } else if (weaponChoice == 2) {
+            vDwarf.SetWeapon("Axe");
+            break;
+        } else if (weaponChoice == 3) {
+            vDwarf.SetWeapon("Hammer");
+            break;
+        } else {
+            cout << "INVALID STATEMENT, Try again!";
+            cin.clear();
+            cin.ignore(1000000, '\n');
+        }
+    }
+    vDwarf.Print();
 }
