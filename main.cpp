@@ -50,62 +50,7 @@ int main(){
         Human vHum = createHuman(false);
         //Human *h = new Human(name, race, (level), (health), (stamina), weapon);
     } else if (characterChoice == 3) {
-        if (characterChoice == 1) {
-            Dwarf vDwarf = createDwarf(false);
-            /*string weapon_name;
-            int weapon_cost;
-            int weapon_damage;
-            Dwarf *d = new Dwarf(name, race, (level), (health), (stamina), weapon);
-            d->EquipWeapon(weapon_name, (weapon_damage), (weapon_cost));
-            vGame.AddCharacter(d);
-            i++;*/
-        }
-        else if (characterChoice == 2) {
-
-            /*string weapon_name;
-            int weapon_cost;
-            int weapon_damage;
-            Human *h = new Human(name, race, (level), (health), (stamina), weapon);
-            h->EquipWeapon(weapon_name, (weapon_damage), (weapon_cost));
-            vGame.AddCharacter(h);
-            i++;*/
-        }
-        else if (characterChoice == 3) {
-            Elf vElf = createElf(false);
-            /*cout << "You have selected Elf!" << endl;
-            characChoice = "Elf";
-            cout << "NAME YOUR " << characChoice << "!" << endl;
-            cin >> charName;
-            vElf.SetName(charName);
-            vElf.SetRace(characChoice);
-            vElf.SetHealth(95);
-            vElf.SetLevel(85);
-
-            while (true) {
-                cout << "Please select a weapon for " << charName << endl;
-                cout << "1. Bow&Arrow" << endl << "2. Sword" << endl << "3. Javelin" << endl;
-                cin >> weaponChoice;
-                if (weaponChoice == 1) {
-                    vElf.SetWeapon("Bow&Arrow");
-                    break;
-                } else if (weaponChoice == 2) {
-                    vElf.SetWeapon("Sword");
-                    break;
-                } else if (weaponChoice == 3) {
-                    vElf.SetWeapon("Javelin");
-                    break;
-                } else {
-                    cout << "No weapon has been selected!";
-                    cin.clear();
-                    cin.ignore(1000000, '\n');
-                }
-                vElf.setStrength(10);
-            }
-
-            vElf.Print();
-            i++;*/
-        }
-        cout << endl;
+        Elf vElf = createElf(false);
     }
 
 
