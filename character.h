@@ -12,6 +12,18 @@ private:
     string race;
     int level;
     int health;
+    string weapon;
+    int weaponDamage;
+public:
+    const string &getWeapon() const;
+
+    void setWeapon(const string &weapon);
+
+    int getWeaponDamage() const;
+
+    void setWeaponDamage(int weaponDamage);
+
+private:
     //Attack Damage
     int strength = 8;
     //Health
@@ -51,10 +63,12 @@ public:
     void SetRace(string race);
     void SetLevel(int level);
     void SetHealth(int health);
-    void setStrength(int strength);
+
+    virtual void setStrength(int strength);
     void setConstitution(int constitution);
     void setDexterity(int dexterity);
-    void setIntelligence(int intelligence);
+
+    virtual void setIntelligence(int intelligence);
     void setWisdom(int wisdom);
     void setCharisma(int charisma);
     void setXp(double xp);
@@ -187,7 +201,21 @@ void Character::setXp(double xp) {
     Character::xp = xp;
 }
 
+const string &Character::getWeapon() const {
+    return weapon;
+}
 
+void Character::setWeapon(const string &weapon) {
+    Character::weapon = weapon;
+}
+
+int Character::getWeaponDamage() const {
+    return weaponDamage;
+}
+
+void Character::setWeaponDamage(int weaponDamage) {
+    Character::weaponDamage = weaponDamage;
+}
 
 
 #endif

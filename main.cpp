@@ -20,7 +20,6 @@ using namespace std;
 
 int main() {
     Character vChar;
-    RunGame game();
 
     string name, occupation, race, weapon;
     int stamina;
@@ -31,5 +30,6 @@ int main() {
     string charName;
 
     cout << "******WELCOME TO THE FIGHTING REALM******" << endl;
-
+    RunGame game;
+    game.AddPlayer();
 }

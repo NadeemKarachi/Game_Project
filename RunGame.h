@@ -21,15 +21,16 @@ class RunGame{
 private:
     Character player;
     Character enemy;
-    int current_turn;
 
 public:
     RunGame();
     void RemoveCharacter(int index);
     void AddPlayer();
-    Character createDwarf(bool isGenerated);
-    Character createHuman(bool isGenerated);
-    Character createElf(bool isGenerated);
+    void MakeEnemy();
+    Character MakeChar(int characterChoice, bool isGenerated)
+;   Character CreateDwarf(bool isGenerated);
+    Character CreateHuman(bool isGenerated);
+    Character CreateElf(bool isGenerated);
 };
 
 RunGame::RunGame(){}
@@ -43,24 +44,33 @@ void RunGame::AddPlayer(){
         cin >> characterChoice;
         if (characterChoice > 3 || characterChoice < 1) {
             cout << "Invalid selection! Please Try Again" << endl;
-            //Clears prev input if invalid
             cin.clear();
             cin.ignore(1000000, '\n');
         } else
             break;
     }
-    //Why can't I call player from here
-    //Why can't I call a createDwarf class
-    if (characterChoice == 1) {
-        player = createDwarf(false);
-    } else if (characterChoice == 2) {
-        Character vHum = createHuman(false);
-    } else if (characterChoice == 3) {
-        Character vElf = createElf(false);
-    }
+    player = MakeChar(characterChoice, false);
+    cout << player.getName() << endl << player.getHealth() << endl << player.getRace() ;
 }
 
-Character RunGame::createDwarf(bool isGenerated){
+void RunGame::MakeEnemy() {
+    int charChoice = rand() % 4;
+    enemy = MakeChar(charChoice, true);
+}
+
+Character RunGame::MakeChar(int characterChoice, bool isGenerated) {
+    Character makeChar;
+    if (characterChoice == 1) {
+        makeChar = CreateDwarf(isGenerated);
+    } else if (characterChoice == 2) {
+        makeChar = CreateHuman(isGenerated);
+    } else if (characterChoice == 3) {
+        makeChar = CreateElf(isGenerated);
+    }
+    return makeChar;
+}
+
+Character RunGame::CreateDwarf(bool isGenerated){
     Dwarf vDwarf;
     string charName;
     int weaponChoice;
@@ -105,7 +115,7 @@ Character RunGame::createDwarf(bool isGenerated){
     return vDwarf;
 }
 
-Character RunGame::createHuman(bool isGenerated) {
+Character RunGame::CreateHuman(bool isGenerated) {
     Human vHum;
     string charName;
     int weaponChoice;
@@ -147,7 +157,7 @@ Character RunGame::createHuman(bool isGenerated) {
     return vHum;
 }
 
-Character RunGame::createElf(bool isGenerated){
+Character RunGame::CreateElf(bool isGenerated){
     Elf vElf;
     string charName;
     int weaponChoice;
