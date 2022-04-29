@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #ifndef FINAL_PROJ_GAME_H
 #define FINAL_PROJ_GAME_H
 
@@ -14,7 +14,7 @@ using namespace std;
 class Game{
 
 private:
-    Character *players[2];
+    Character c;
     int current_turn;
     int num_of_characters;
 
@@ -99,3 +99,4 @@ void Game::Print(){
 }
 
 #endif
+*/
