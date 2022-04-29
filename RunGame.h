@@ -76,7 +76,7 @@ void RunGame::GameMenu(){
         cout << "================================================="<< endl;
         cout << "1. Fight Next Opponent"<< endl;
         cout << "2. Player Info"<< endl;
-        cout << "2. Exit Game"<< endl;
+        cout << "3. Exit Game"<< endl;
         cin >> mainMenuSelection;
         if(mainMenuSelection == 1){
             MakeEnemy();
@@ -121,7 +121,6 @@ void RunGame::MakeEnemy() {
     srand(time(nullptr)+839);
     int charChoice = rand() % 3 + 1;
     enemy = MakeChar(charChoice, true);
-    cout << enemy.getName() << endl << enemy.getHealth() << endl << enemy.getRace() << endl << enemy.getWeapon() << endl << enemy.getWeaponDamage();
 }
 
 Character RunGame::MakeChar(int characterChoice, bool isGenerated) {

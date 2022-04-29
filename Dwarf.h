@@ -34,6 +34,4 @@ void Dwarf::setIntelligence(int intelligence_){
     Character::setIntelligence(int(intelligence_*1.2));
 }
 
-
-
 #endif
