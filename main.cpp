@@ -54,36 +54,6 @@ int main(){
             i++;*/
         }
         else if (characterChoice == 2) {
-            cout << "You have selected Human!" << endl;
-            characChoice = "Human";
-            cout << "NAME YOUR " << characChoice << "!" << endl;
-            cin >> charName;
-            vHum.SetName(charName);
-            vHum.SetRace(characChoice);
-            vHum.SetHealth(90);
-            vHum.SetLevel(90);
-
-            while (true) {
-                cout << "Please select a weapon for " << charName << endl;
-                cout << "1. Sword" << endl << "2. kyoketsu-shoge" << endl << "3. Flail" << endl;
-                cin >> weaponChoice;
-                if (weaponChoice == 1) {
-                    vHum.SetWeapon("Sword");
-                    break;
-                } else if (weaponChoice == 2) {
-                    vHum.SetWeapon("kyoketsu-shoge");
-                    break;
-                } else if (weaponChoice == 3) {
-                    vHum.SetWeapon("Flail");
-                    break;
-                } else {
-                    cout << "No weapon has been selected!";
-                    cin.clear();
-                    cin.ignore(1000000, '\n');
-                }
-            }
-            vHum.Print();
-            vChar = vHum;
 
             /*string weapon_name;
             int weapon_cost;
@@ -215,3 +185,5 @@ Dwarf createDwarf(bool isGenerated){
     }
     vDwarf.Print();
 }
+
+Human createHuman
