@@ -1,10 +1,6 @@
-
-
 #ifndef FINAL_PROJ_ELF_H
 #define FINAL_PROJ_ELF_H
 #pragma once
-
-
 
 #include <iostream>
 #include <string>
@@ -26,11 +22,31 @@ public:
     string getWeapon() const;
     void SetWeapon(string weapon_);
     void SetStamina(int stamina_);
-    //void Attack(Character *target);
-
+    void Attack(Character *target);
     void Print();
+    void setStrength(int strength_);
 
+    double getStrength() const;
 
+    void setDexterity(int dexterity);
+
+    double getDexterity() const;
+
+    double getIntelligence() const;
+
+    void setIntelligence(int intelligence_);
+
+    double getConstitution() const;
+
+    void setConstitution(int constitution_);
+
+    void setWisdom(int strength_);
+
+    double getWisdom() const;
+
+    void setCharisma(int charisma_);
+
+    double getCharisma() const;
 };
 
 Elf::Elf(): Character(){
@@ -57,9 +73,56 @@ void Elf::SetWeapon(string weapon_){
 void Elf::SetStamina(int stamina_){
     stamina = stamina_;
 }
+void Elf::setStrength(int strength_){
+    Character::setStrength(strength_);
+}
+
+double Elf::getStrength() const {
+    return Character::getStrength()*.8;
+}
+
+void Elf::setDexterity(int dexterity_){
+    Character::setDexterity(dexterity_);
+}
+
+double Elf::getDexterity() const {
+    return Character::getDexterity();
+}
+
+void Elf::setIntelligence(int intelligence_){
+    Character::setIntelligence(intelligence_);
+}
+
+double Elf::getIntelligence() const {
+    return Character::getIntelligence()*1.2;
+}
+
+void Elf::setConstitution(int constitution_){
+    Character::setIntelligence(constitution_);
+}
+
+double Elf::getConstitution() const {
+    return Character::getIntelligence();
+}
+void Elf::setWisdom(int wisdom_){
+    Character::setStrength(wisdom_);
+}
+
+double Elf::getWisdom() const {
+    return Character::getWisdom();
+}
+
+void Elf::setCharisma(int charisma_){
+    Character::setCharisma(charisma_);
+}
+
+double Elf::getCharisma() const {
+    return Character::getCharisma();
+}
 
 void Elf::Print(){
     Character::Print();
     cout<<"Weapon: " << getWeapon() << endl;
+    cout<<"Attributes: " << Elf::getStrength();
 }
 #endif //FINAL_PROJ_ELF_H

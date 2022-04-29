@@ -21,6 +21,8 @@ class Dwarf : public Character{
 private:
     string weapon;
     int stamina ;
+    int damage;
+    int stamina_cost;
 
 public:
     Dwarf();
@@ -29,7 +31,7 @@ public:
     string getWeapon() const;
     void SetWeapon(string weapon_);
     void SetStamina(int stamina_);
-    //void EquipWeapon(string name, int damage, int stamina_cost);
+    void EquipWeapon(string name, int damage, int stamina_cost);
     void Attack(Character *target);
     void Print();
 
@@ -39,6 +41,7 @@ public:
 Dwarf::Dwarf(): Character(){
     int stamina = 100;
     int damage = 30;
+    int stamina_cost = 0;
 }
 
 Dwarf::Dwarf(string name, string race, int level, int health, int stamina_, string weapon_) : Character( name, race, level, health),stamina(stamina), weapon(weapon){
@@ -62,28 +65,21 @@ void Dwarf::SetStamina(int stamina_){
 }
 
 // function to set the active weapon details to passed weapon details
-/*void Dwarf::EquipWeapon(string name, int damage, int stamina_cost){
-    active_weapon.name = name;
-    active_weapon.damage = damage;
-    active_weapon.stamina_cost = stamina_cost;
-}*/
+void Dwarf::EquipWeapon(string name, int damage_, int stamina_cost_){
+    getWeapon() = name;
+    damage = damage_;
+    stamina_cost = stamina_cost_;
+}
 
 // function to attach the target
-/*void Dwarf::Attack(Character *target)
+void Dwarf::Attack(Character *target)
 {
-// check if there is an active weapon
-    if(active_weapon.name =="" && active_weapon.damage == 0 && active_weapon.stamina_cost == 0)
-        cout<<"Dwarf has no weapon!"<<endl;
-    else if(stamina < active_weapon.stamina_cost) // check if character's stamina >= weapon's stamina
-        cout<<"Insufficient stamina points!"<<endl;
-    else
-    {
-        target->SetHealth(target->getHealth() - active_weapon.damage); // decrement the health of target by weapon damage
+        target->SetHealth(target->getHealth() - damage); // decrement the health of target by weapon damage
 // display the message
-        cout<<getName()<<" attacked "<<target->getName()<<" with a weapon "<<active_weapon.name<<", dealing "<<active_weapon.damage<<" damage."<<endl;
+        cout<<getName()<<" attacked "<<target->getName()<<" with a weapon "<< getWeapon() <<", dealing "<< damage <<" damage."<<endl;
     }
-}
-*/
+
+
 // display the details of barbarian
 void Dwarf::Print(){
     Character::Print();
