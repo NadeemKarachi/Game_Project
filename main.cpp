@@ -2,6 +2,9 @@
 #include <string>
 #include <cstdlib>
 #include <fstream>
+#include <cstdlib>
+#include <random>
+#include <functional>
 
 #include "Dwarf.h"
 #include "character.h"
@@ -44,7 +47,7 @@ int main() {
     }
 
     if (characterChoice == 1) {
-        Dwarf vDwarf = createDwarf(false);
+        Dwarf vDwarf = createDwarf(true);
         //Dwarf *d = new Dwarf(name, race, (level), (health), (stamina), weapon);
     } else if (characterChoice == 2) {
         Human vHum = createHuman(false);
@@ -74,8 +77,12 @@ Dwarf createDwarf(bool isGenerated){
     vDwarf.SetLevel(80);
 
     while (true) {
-        if (isGenerated)
-            weaponChoice = rand() % 4;
+        if (isGenerated){
+            std::default_random_engine generator;
+            std::uniform_int_distribution<int> distribution(1, 3);
+            auto dice = std::bind(distribution, generator);
+            weaponChoice = dice();
+        }
         else {
             cout << "Please select a weapon for " << charName << endl;
             cout << "1. Sword" << endl << "2. Axe" << endl << "3. Hammer" << endl;
@@ -116,8 +123,12 @@ Human createHuman(bool isGenerated) {
     vHum.SetLevel(90);
 
     while (true) {
-        if (isGenerated)
-            weaponChoice = rand() % 4;
+        if (isGenerated){
+            std::default_random_engine generator;
+            std::uniform_int_distribution<int> distribution(1, 3);
+            auto dice = std::bind(distribution, generator);
+            weaponChoice = dice();
+        }
         else {
             cout << "Please select a weapon for " << charName << endl;
             cout << "1. Sword" << endl << "2. Kyoketsu-Shoge" << endl << "3. Flail" << endl;
@@ -157,8 +168,12 @@ Elf createElf(bool isGenerated){
     vElf.SetHealth(95);
     vElf.SetLevel(85);
     while (true) {
-        if(isGenerated)
-            weaponChoice = rand() % 4;
+        if(isGenerated){
+            std::default_random_engine generator;
+            std::uniform_int_distribution<int> distribution(1, 3);
+            auto dice = std::bind(distribution, generator);
+            weaponChoice = dice();
+        }
         else{
             cout << "Please select a weapon for " << charName << endl;
             cout << "1. Bow&Arrow" << endl << "2. Sword" << endl << "3. Javelin" << endl;
