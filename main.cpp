@@ -12,24 +12,12 @@
 #include "Elf.h"
 #include "RunGame.h"
 
-Character createDwarf(bool isGenerated);
-Character createElf(bool isGenerated);
-Character createHuman(bool isGenerated);
-
 using namespace std;
 
 int main() {
     Character vChar;
-
-    string name, occupation, race, weapon;
-    int stamina;
-    int health;
-    int level;
-    string characChoice;
-    int characterChoice, weaponChoice;
-    string charName;
-
-    cout << "******WELCOME TO THE FIGHTING REALM******" << endl;
     RunGame game;
-    game.AddPlayer();
+    //Testing Character Creation
+    //game.AddPlayer();
+    game.MakeEnemy();
 }

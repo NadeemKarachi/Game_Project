@@ -15,13 +15,7 @@ private:
     string weapon;
     int weaponDamage;
 public:
-    const string &getWeapon() const;
 
-    void setWeapon(const string &weapon);
-
-    int getWeaponDamage() const;
-
-    void setWeaponDamage(int weaponDamage);
 
 private:
     //Attack Damage
@@ -42,7 +36,7 @@ private:
 public:
 // constructors
     Character();
-    Character(string name_, string race_, int level, int health);
+    Character(string name_, string race_, int level, int health, string weapon, int weaponDamage);
 
 // getter functions
     string getName() const;
@@ -75,11 +69,10 @@ public:
     void setStrength() const;
     // other functions
     virtual void Print();
-
-    //virtual void Attack(Character *target) =0;
-
-
-
+    const string getWeapon() const;
+    void setWeapon(const string &weapon);
+    int getWeaponDamage() const;
+    void setWeaponDamage(int weaponDamage);
 };
 
 Character::Character(){
@@ -90,7 +83,7 @@ Character::Character(){
 }
 
 // constructor
-Character::Character(string name, string race, int level_, int health_)
+Character::Character(string name, string race, int level_, int health_, string weapon, int weaponDamage)
 {}
 
 // getter functions
@@ -201,7 +194,7 @@ void Character::setXp(double xp) {
     Character::xp = xp;
 }
 
-const string &Character::getWeapon() const {
+const string Character::getWeapon() const {
     return weapon;
 }
 
