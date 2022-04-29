@@ -34,7 +34,7 @@ public:
 
 RunGame::RunGame(){}
 
-void AddPlayer(){
+void RunGame::AddPlayer(){
     int characterChoice;
     cout << "TO START PLAYING PLEASE SELECT A CHARACTER" << endl;
     //Input Validation
@@ -60,7 +60,7 @@ void AddPlayer(){
     }
 }
 
-Character createDwarf(bool isGenerated){
+Character RunGame::createDwarf(bool isGenerated){
     Dwarf vDwarf;
     string charName;
     int weaponChoice;
@@ -105,7 +105,7 @@ Character createDwarf(bool isGenerated){
     return vDwarf;
 }
 
-Character createHuman(bool isGenerated) {
+Character RunGame::createHuman(bool isGenerated) {
     Human vHum;
     string charName;
     int weaponChoice;
@@ -147,7 +147,7 @@ Character createHuman(bool isGenerated) {
     return vHum;
 }
 
-Character createElf(bool isGenerated){
+Character RunGame::createElf(bool isGenerated){
     Elf vElf;
     string charName;
     int weaponChoice;
