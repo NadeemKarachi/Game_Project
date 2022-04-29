@@ -15,7 +15,7 @@ Human createHuman(bool isGenerated);
 
 using namespace std;
 
-int main(){
+int main() {
     Character vChar;
     Game vGame;
 
@@ -52,44 +52,6 @@ int main(){
     } else if (characterChoice == 3) {
         Elf vElf = createElf(false);
     }
-
-
-    int option = -1;
-    int c = 1;
-    do{
-        cout<<"Please choose an option:"<<endl;
-
-        cout<<"1 - Start Round " << c << endl;
-        cout<<"2 - Print All Characters"<<endl;
-        cout<<"3 - Exit"<<endl;
-
-        cin>>option;
-        cout<<endl;
-
-
-        switch(option){
-            case 1:
-                vGame.NextTurn();
-                c++;
-                break;
-
-            case 2:
-                vGame.Print();
-                break;
-
-            case 3:
-                cout << "THANK YOU FOR PLAYING!" << endl;
-                exit(0);
-
-            default:
-                cout<<"Invalid Option!"<<endl;
-        }
-
-        cout<<endl;
-    }
-    while(option != 3); //
-
-    return 0;
 }
 
 Dwarf createDwarf(bool isGenerated){
