@@ -27,6 +27,7 @@ public:
     void AddPlayer();
     void MakeEnemy();
     void MainMenu();
+    void FightMenu();
     void GameMenu();
     Character MakeChar(int characterChoice, bool isGenerated)
 ;   Character CreateDwarf(bool isGenerated);
@@ -42,20 +43,21 @@ RunGame::RunGame(){
 void RunGame::MainMenu(){
     int mainMenuSelection;
     while(true){
-        cout << "=================================================";
-        cout << "=                   Main Menu                   =";
-        cout << "=================================================";
-        cout << "1. New Game";
-        cout << "2. Continue";
-        cout << "3. Exit";
+        cout << "=================================================" << endl;
+        cout << "=                   Main Menu                   =" << endl;
+        cout << "=================================================" << endl;
+        cout << "1. New Game" << endl;
+        cout << "2. Continue" << endl;
+        cout << "3. Exit" << endl;
         cin >> mainMenuSelection;
         if(mainMenuSelection == 1){
             AddPlayer();
             GameMenu();
-            break;
         }
         else if(mainMenuSelection == 2){
             //TODO: Set up save games and continue games
+        }
+        else if(mainMenuSelection == 3){
             break;
         }
         else{
@@ -69,18 +71,21 @@ void RunGame::MainMenu(){
 void RunGame::GameMenu(){
     int mainMenuSelection;
     while(true){
-        cout << "=================================================";
-        cout << "=                   Game Menu                   =";
-        cout << "=================================================";
-        cout << "1. Fight Next Opponent";
-        cout << "2. Exit Game";
+        cout << "================================================="<< endl;
+        cout << "=                   Game Menu                   ="<< endl;
+        cout << "================================================="<< endl;
+        cout << "1. Fight Next Opponent"<< endl;
+        cout << "2. Player Info"<< endl;
+        cout << "2. Exit Game"<< endl;
         cin >> mainMenuSelection;
         if(mainMenuSelection == 1){
             MakeEnemy();
             FightMenu();
-            break;
         }
         else if(mainMenuSelection == 2){
+            player.Print();
+        }
+        else if(mainMenuSelection == 3){
             break;
         }
         else{
@@ -91,6 +96,9 @@ void RunGame::GameMenu(){
     }
 }
 
+void RunGame::FightMenu(){
+
+}
 
 void RunGame::AddPlayer(){
     int characterChoice;
@@ -107,7 +115,6 @@ void RunGame::AddPlayer(){
             break;
     }
     player = MakeChar(characterChoice, false);
-    cout << player.getName() << endl << player.getHealth() << endl << player.getRace()<< endl << player.getWeapon()<< endl << player.getWeaponDamage();
 }
 
 void RunGame::MakeEnemy() {
