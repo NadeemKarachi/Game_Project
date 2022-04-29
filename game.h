@@ -54,7 +54,7 @@ void Game:: RemoveCharacter(int index)
 
 // add a character to the array
 void Game:: AddCharacter(Character *c){
-    if(num_of_characters == 2) {
+    if(num_of_characters == 1) {
         cout<<"Character limit reached, please wait for the next game!"<<endl;
     }
     else{
@@ -65,7 +65,7 @@ void Game:: AddCharacter(Character *c){
 
 // simulate a turn
 void Game:: NextTurn(){
-    if(num_of_characters != 2) // validate number of players
+    if(num_of_characters != 1) // validate number of players
         cout<<"Need more players!"<<endl;
     else{
         current_turn++; // increment the current turn
@@ -91,10 +91,11 @@ void Game:: NextTurn(){
 // display the details of the characters in the game
 void Game::Print(){
     for(int i=0;i<num_of_characters;i++){
-        players[i]-> Character::Print();
+        players[i]-> Print();
 
         cout<<endl;
     }
+
 }
 
 #endif

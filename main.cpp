@@ -82,7 +82,8 @@ int main(){
             d->EquipWeapon(weapon_name, (weapon_damage), (weapon_cost));
             vGame.AddCharacter(d);
             i++;
-        } else if (characterChoice == 2) {
+        }
+        else if (characterChoice == 2) {
             cout << "You have selected Human!" << endl;
             characChoice = "Human";
             cout << "NAME YOUR " << characChoice << "!" << endl;
@@ -121,7 +122,8 @@ int main(){
             h->EquipWeapon(weapon_name, (weapon_damage), (weapon_cost));
             vGame.AddCharacter(h);
             i++;
-        } else if (characterChoice == 3) {
+        }
+        else if (characterChoice == 3) {
             cout << "You have selected Elf!" << endl;
             characChoice = "Elf";
             cout << "NAME YOUR " << characChoice << "!" << endl;
@@ -159,6 +161,8 @@ int main(){
         if(i<3){
         cout <<"PLEASE SELECT YOUR OPPONENT: "<<endl;}
     }
+
+
     int option = -1;
     int c = 1;
     do{
