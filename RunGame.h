@@ -1,11 +1,9 @@
 #ifndef FINAL_PROJ_RUNGAME_H
 #define FINAL_PROJ_RUNGAME_H
 
-#endif //FINAL_PROJ_RUNGAME_H
 
 #pragma once
-#ifndef FINAL_PROJ_GAME_H
-#define FINAL_PROJ_GAME_H
+
 
 #include <iostream>
 #include <string>
@@ -45,6 +43,7 @@ RunGame::RunGame(){
 }
 
 void RunGame::MainMenu(){
+
     int mainMenuSelection;
     while(true){
         cout << "=================================================" << endl;
@@ -63,8 +62,9 @@ void RunGame::MainMenu(){
             GameMenu();
         }
         else if(mainMenuSelection == 3){
-            cout << "Thank You for Playing!" << endl;
+            cout << "THANK YOU FOR PLAYING!" << endl;
             cout << "GOODBYE!" << endl;
+
             break;
         }
         else{
@@ -122,6 +122,7 @@ void RunGame::GameMenu(){
             output << player.getWeapon() << endl;
             output << player.getWeaponDamage() << endl;
             cout <<  "Saved Successfully" << endl;
+            output.close();
         }
         else if(mainMenuSelection == 4){
             break;
@@ -456,7 +457,8 @@ void RunGame::getGame(){
         myfile.close();
     }
     else
-        cout << "File coudl not be read";
+        cout << "NO GAME TO CONTINUE, STARTING NEW GAME!" << endl;
 
 }
+
 #endif
