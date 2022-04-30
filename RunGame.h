@@ -28,6 +28,7 @@ public:
     void MakeEnemy();
     void MainMenu();
     void FightMenu();
+    bool calcAttack();
     void GameMenu();
     Character MakeChar(int characterChoice, bool isGenerated)
 ;   Character CreateDwarf(bool isGenerated);
@@ -36,7 +37,7 @@ public:
 };
 
 RunGame::RunGame(){
-    cout << "******WELCOME TO THE FIGHTING REALM******" << endl;
+    cout << "==========WELCOME TO THE FIGHTING REALM==========" << endl;
     MainMenu();
 }
 
@@ -97,6 +98,55 @@ void RunGame::GameMenu(){
 }
 
 void RunGame::FightMenu(){
+    int fightMenuSelection;
+    while(true){
+        cout << "================================================="<< endl;
+        cout << "=                  Fight Menu                   ="<< endl;
+        cout << "================================================="<< endl;
+        cout << player.getName() << "'s Health:" << player.getHealth() << endl;
+        cout << enemy.getName() << "'s Health:" << enemy.getHealth() << endl;
+        cout << "================================================="<< endl;
+        cout << "1. Attack Enemy"<< endl;
+        cout << "2. Flee"<< endl;
+        cin >> fightMenuSelection;
+        if(fightMenuSelection == 1){
+            bool isDeadEnemy = calcAttack();
+            if(isDeadEnemy){
+                cout << "Your Opponent has Perished.";
+                break;
+            }
+        }
+        else if(fightMenuSelection == 2){
+            cout << "You successfully escaped";
+            break;
+        }
+        else{
+            cout << "Invalid selection! Please Try Again" << endl;
+            cin.clear();
+            cin.ignore(1000000, '\n');
+        }
+    }
+}
+
+bool RunGame::calcAttack(){
+    srand(time(0));
+    int attackRoll = rand() % 20 + 1;
+    if (attackRoll < 3){
+        cout << "You Missed";
+        return false;
+    }
+    if (attackRoll == 20){
+        int damageOutput = player.getWeaponDamage()+attackRoll;
+        int enemyHealth = enemy.getHealth()-damageOutput;
+        cout << "CRITICAL HIT! You hit your opponent for " << damageOutput << endl;
+        if(enemyHealth < 0){
+            cout << "Your Opponent has perished"
+        }
+        cout << "Your opponent flinched and wasn't able to attack.";
+
+        return;
+    }
+
 
 }
 
@@ -151,7 +201,7 @@ Character RunGame::CreateDwarf(bool isGenerated){
 
     vDwarf.SetName(charName);
     vDwarf.SetRace("Dwarf");
-    vDwarf.SetHealth(100);
+    vDwarf.setHealth(100);
     vDwarf.SetLevel(80);
 
     while (true) {
@@ -197,8 +247,7 @@ Character RunGame::CreateHuman(bool isGenerated) {
     }
     vHum.SetName(charName);
     vHum.SetRace("Human");
-    vHum.SetHealth(90);
-    vHum.SetLevel(90);
+    vHum.SetHealth(150);
 
     while (true) {
         if (isGenerated)
@@ -243,8 +292,7 @@ Character RunGame::CreateElf(bool isGenerated){
     }
     vElf.SetName(charName);
     vElf.SetRace("Elf");
-    vElf.SetHealth(95);
-    vElf.SetLevel(85);
+    vElf.SetHealth(200);
     while (true) {
         if(isGenerated)
             weaponChoice = rand() % 3;

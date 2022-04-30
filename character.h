@@ -18,19 +18,12 @@ public:
 
 
 private:
-    //Attack Damage
     int strength = 8;
-    //Health
     int constitution = 8;
-    //Dodge attacks
     int dexterity  = 8;
-    //Magic Damage / Resistance
     int intelligence  = 8; //TODO: Add Intelligence functionality
-    //Insight
     int wisdom = 8; //TODO: Add wisdom functionality
-    //Speech level
     int charisma  = 8; //TODO: Add charisma functionality
-    //XP
     double xp; //TODO: Set XP Functionality
 
 public:

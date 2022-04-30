@@ -15,7 +15,7 @@ public:
     Dwarf();
 
     Dwarf(string name, string race, int level, int health, string weapon, int weaponDamage);
-
+    void setHealth(int health_);
     void setStrength(int strength_);
     void setIntelligence(int intelligence_);
 };
@@ -25,6 +25,10 @@ Dwarf::Dwarf(): Character(){
 }
 
 Dwarf::Dwarf(string name, string race, int level, int health, string weapon, int weaponDamage) : Character( name, race, level, health, weapon, weaponDamage){}
+
+void Dwarf::setHealth(int health_){
+    Character::SetHealth(health_);
+}
 
 void Dwarf::setStrength(int strength_){
     Character::setStrength(int(strength_ * .8));
