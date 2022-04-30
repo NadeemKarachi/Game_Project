@@ -49,7 +49,7 @@ public:
     void SetName(string name);
     void SetRace(string race);
     void SetLevel(int level);
-    void SetHealth(int health);
+    int SetHealth(int health);
 
     virtual void setStrength(int strength);
     void setConstitution(int constitution);
@@ -103,7 +103,7 @@ int Character::getLevel() const
 }
 
 // setter functions
-void Character::SetHealth(int health_)
+int Character::SetHealth(int health_)
 {
     health = health_;
 }
@@ -132,14 +132,7 @@ void Character::Print()
     cout<<"Health: "<< health <<endl;
 }
 
-void Character::PrintPlayer(std::ostream& out)
-{
-    cout<<"Character Status: "<<endl;
-    cout<<"Name: "<< getName() <<endl;
-    cout<<"Race: "<< getRace() <<endl;
-    cout<<"Level: "<< level <<endl;
-    cout<<"Health: "<< health <<endl;
-}
+
 //Attributes Getters and Setters
 int Character::getStrength() const {
     return strength;

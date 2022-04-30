@@ -60,9 +60,12 @@ void RunGame::MainMenu(){
         }
         else if(mainMenuSelection == 2){
             //TODO: Set up save games and continue games
-            ofstream outfile;
-            outfile.open("Player1.txt", ios::out);
-            player.PrintPlayer(outfile);
+            ofstream output("Player1.txt");
+            output << player.getName() <<endl;
+            output << player.getRace() <<endl;
+            output << player.getHealth() << endl;
+            output << player.getWeapon() << endl;
+            output << player.getWeaponDamage() << endl;
         }
         else if(mainMenuSelection == 3){
             break;
@@ -86,6 +89,8 @@ void RunGame::GameMenu(){
         cout << "3. Save Player Data" << endl;
         cout << "4. Exit Game"<< endl;
         cin >> mainMenuSelection;
+
+
         if(mainMenuSelection == 1){
             MakeEnemy();
             FightMenu();
@@ -98,11 +103,14 @@ void RunGame::GameMenu(){
         else if(mainMenuSelection == 2){
             player.Print();
         }
+
         else if(mainMenuSelection == 3){
-            ofstream outfile;
-            outfile.open("Player1.txt", ios::out);
-            player.PrintPlayer(outfile);
-            cout << "Your Progress has been Successfully Saved!" << endl;
+            ofstream output("Player1.txt");
+            output << player.getName() <<endl;
+            output << player.getRace() <<endl;
+            output << player.getHealth() << endl;
+            output << player.getWeapon() << endl;
+            output << player.getWeaponDamage() << endl;
         }
         else if(mainMenuSelection == 4){
             break;
