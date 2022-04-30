@@ -82,7 +82,8 @@ void RunGame::GameMenu(){
         cout << "================================================="<< endl;
         cout << "1. Fight Next Opponent"<< endl;
         cout << "2. Player Info"<< endl;
-        cout << "3. Exit Game"<< endl;
+        cout << "3. Save Player Data" << endl;
+        cout << "4. Exit Game"<< endl;
         cin >> mainMenuSelection;
         if(mainMenuSelection == 1){
             MakeEnemy();
@@ -92,6 +93,12 @@ void RunGame::GameMenu(){
             player.Print();
         }
         else if(mainMenuSelection == 3){
+            ofstream outfile;
+            outfile.open("Player1.txt", ios::out);
+            player.PrintPlayer(outfile);
+            cout << "Your Progress has been Successfully Saved!" << endl;
+        }
+        else if(mainMenuSelection == 4){
             break;
         }
         else{
