@@ -88,6 +88,11 @@ void RunGame::GameMenu(){
         if(mainMenuSelection == 1){
             MakeEnemy();
             FightMenu();
+            if(player.getHealth() <= 0){
+                break;
+            }
+            cout << "After a short rest and healing, you are ready to fight your next opponent."<< endl;
+            player.SetHealth(player.getHealth()+50);
         }
         else if(mainMenuSelection == 2){
             player.Print();
