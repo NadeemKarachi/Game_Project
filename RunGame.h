@@ -142,6 +142,7 @@ void RunGame::FightMenu(){
         cout << "================================================="<< endl;
         cout << "Player: " << player.getName() << "'s Health:" << player.getHealth() << endl;
         cout << "Enemy: " << enemy.getRace() << " " << enemy.getName() << "'s Health:" << enemy.getHealth() << endl;
+        cout << "Player Weapon: " << player.getWeapon() << ", Enemy Weapon: " << enemy.getWeapon() << endl;
         cout << "================================================="<< endl;
         cout << "1. Attack Enemy with your "<< player.getWeapon() << endl;
         cout << "2. Flee"<< endl;
@@ -175,6 +176,7 @@ bool RunGame::calcAttack(){
     int attackRoll = rand() % 20 + 1;
     if (attackRoll < 3){
         cout << "You Missed"<< endl;
+        cout << endl;
         return false;
     }
     if (attackRoll > 17 && attackRoll < 20){
@@ -182,6 +184,7 @@ bool RunGame::calcAttack(){
         int enemyHealth = enemy.getHealth()-damageOutput;
         enemy.SetHealth(enemyHealth);
         cout << "CRITICAL HIT! You hit your opponent for " << damageOutput << endl;
+        cout << endl;
         if(enemyHealth <= 0){
             return true;
         }
@@ -192,6 +195,7 @@ bool RunGame::calcAttack(){
         int enemyHealth = enemy.getHealth()-damageOutput;
         enemy.SetHealth(enemyHealth);
         cout << "DOUBLE HIT! You hit your opponent twice for a total of " << damageOutput << endl;
+        cout << endl;
         if(enemyHealth <= 0){
             return true;
         }
@@ -201,6 +205,7 @@ bool RunGame::calcAttack(){
     int enemyHealth = enemy.getHealth()-damageOutput;
     enemy.SetHealth(enemyHealth);
     cout << "You hit your opponent for " << damageOutput << endl;
+    cout << endl;
     if(enemyHealth <= 0){
         return true;
     }
@@ -212,6 +217,7 @@ bool RunGame::calcEnemyAttack(){
     int attackRoll = rand() % 20 + 1;
     if (attackRoll < 4){
         cout << "Your Enemy Missed"<< endl;
+        cout << endl;
         return false;
     }
     if (attackRoll > 18){
@@ -219,6 +225,7 @@ bool RunGame::calcEnemyAttack(){
         int enemyHealth = player.getHealth()-damageOutput;
         player.SetHealth(enemyHealth);
         cout << "CRITICAL HIT! You have been hit for " << damageOutput << endl;
+        cout << endl;
         if(enemyHealth <= 0){
             return true;
         }
@@ -228,10 +235,12 @@ bool RunGame::calcEnemyAttack(){
     int enemyHealth = player.getHealth()-damageOutput;
     player.SetHealth(enemyHealth);
     cout << "You have been hit for " << damageOutput << endl;
+    cout << endl;
     if(enemyHealth <= 0){
         return true;
     }
     return false;
+    cout << endl;
 }
 
 void RunGame::AddPlayer(){
@@ -278,7 +287,7 @@ Character RunGame::CreateDwarf(bool isGenerated){
         charName = GenerateName();
 
     else {
-        cout << "You have selected Dwarf!" << endl;
+        cout << "\"YOU HAVE BEEN SELECTED ON BEHALF OF THE DWARF NATION TO PARTICIPATE!\"" << endl;
         cout << "GIVE A NAME TO THE DWARF!" << endl;
         cin.ignore();
         getline(cin,charName);
@@ -295,7 +304,7 @@ Character RunGame::CreateDwarf(bool isGenerated){
             weaponChoice = rand() % 3 + 1;
         else {
             cout << "Please select a weapon for " << charName << endl;
-            cout << "1. Sword" << endl << "2. Axe" << endl << "3. Hammer" << endl;
+            cout << "1. Sword- Outputs 20 damage" << endl << "2. Axe- Outputs 30 damage" << endl << "3. Hammer- Outputs 40 damage" << endl;
             cin >> weaponChoice;
         }
         if (weaponChoice == 1) {
@@ -327,7 +336,7 @@ Character RunGame::CreateHuman(bool isGenerated) {
     if (isGenerated)
         charName = GenerateName();
     else {
-        cout << "You have selected Human!" << endl;
+        cout << "YOU HAVE BEEN SELECTED ON BEHALF OF THE HUMAN NATION TO PARTICIPATE!" << endl;
         cout << "NAME YOUR HUMAN!" << endl;
         cin.ignore();
         getline(cin,charName);
@@ -341,7 +350,7 @@ Character RunGame::CreateHuman(bool isGenerated) {
             weaponChoice = rand() % 3 + 1;
         else {
             cout << "Please select a weapon for " << charName << endl;
-            cout << "1. Sword" << endl << "2. Kyoketsu-Shoge" << endl << "3. Flail" << endl;
+            cout << "1. Sword- Outputs 20 damage" << endl << "2. Kyoketsu-Shoge(knife on chain)- Outputs 30 damage" << endl << "3. Flail- Outputs 25 damage" << endl;
             cin >> weaponChoice;
         }
         if (weaponChoice == 1) {
@@ -373,7 +382,7 @@ Character RunGame::CreateElf(bool isGenerated){
     if(isGenerated)
         charName = GenerateName();
     else{
-        cout << "You have selected Elf!" << endl;
+        cout << "YOU HAVE BEEN SELECTED ON BEHALF OF THE ELF NATION TO PARTICIPATE!" << endl;
         cout << "GIVE A NAME TO THE ELF!" << endl;
         cin.ignore();
         getline(cin,charName);
@@ -386,7 +395,7 @@ Character RunGame::CreateElf(bool isGenerated){
             weaponChoice = rand() % 3 + 1;
         else{
             cout << "Please select a weapon for " << charName << endl;
-            cout << "1. Bow&Arrow" << endl << "2. Sword" << endl << "3. Javelin" << endl;
+            cout << "1. Bow&Arrow - Outputs 10 damage" << endl << "2. Sword- Outputs 20 damage" << endl << "3. Javelin- Outputs 15 damage" << endl;
             cin >> weaponChoice;
         }
         if (weaponChoice == 1) {
