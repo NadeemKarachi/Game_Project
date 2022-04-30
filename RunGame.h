@@ -41,7 +41,6 @@ public:
 };
 
 RunGame::RunGame(){
-    cout << "==========WELCOME TO THE FIGHTING REALM==========" << endl;
     MainMenu();
 }
 
@@ -64,6 +63,8 @@ void RunGame::MainMenu(){
             GameMenu();
         }
         else if(mainMenuSelection == 3){
+            cout << "Thank You for Playing!" << endl;
+            cout << "GOODBYE!" << endl;
             break;
         }
         else{
