@@ -76,8 +76,10 @@ void RunGame::MainMenu(){
 }
 
 void RunGame::GameMenu(){
+    Character vChar;
     int mainMenuSelection;
     while(true){
+        cout << endl;
         cout << "================================================="<< endl;
         cout << "=                   Game Menu                   ="<< endl;
         cout << "================================================="<< endl;
@@ -94,8 +96,19 @@ void RunGame::GameMenu(){
             if(player.getHealth() <= 0){
                 break;
             }
-            cout << "After a short rest and healing, you are ready to fight your next opponent."<< endl;
-            player.SetHealth(player.getHealth()+50);
+            cout << endl <<  "After a short rest and healing, you are ready to fight your next opponent."<< endl;
+            if(player.getRace() == " "){
+                player.SetHealth(150);
+            }
+            else if(player.getRace() == "Elf"){
+                player.SetHealth(200);
+            }
+            else if(player.getRace() =="Human"){
+                player.SetHealth(150);
+            }
+            else {
+                player.SetHealth(100);
+            }
         }
         else if(mainMenuSelection == 2){
             player.Print();
@@ -128,7 +141,7 @@ void RunGame::FightMenu(){
         cout << "=                   Fight Menu                  ="<< endl;
         cout << "================================================="<< endl;
         cout << "Player: " << player.getName() << "'s Health:" << player.getHealth() << endl;
-        cout << "Enemy: " <<enemy.getName() << "'s Health:" << enemy.getHealth() << endl;
+        cout << "Enemy: " << enemy.getRace() << " " << enemy.getName() << "'s Health:" << enemy.getHealth() << endl;
         cout << "================================================="<< endl;
         cout << "1. Attack Enemy with your "<< player.getWeapon() << endl;
         cout << "2. Flee"<< endl;
