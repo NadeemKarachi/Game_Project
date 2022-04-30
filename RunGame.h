@@ -30,6 +30,7 @@ public:
     void MainMenu();
     void FightMenu();
     bool calcAttack();
+    bool calcEnemyAttack();
     void GameMenu();
     Character MakeChar(int characterChoice, bool isGenerated)
 ;   Character CreateDwarf(bool isGenerated);
@@ -110,18 +111,23 @@ void RunGame::FightMenu(){
         cout << player.getName() << "'s Health:" << player.getHealth() << endl;
         cout << enemy.getName() << "'s Health:" << enemy.getHealth() << endl;
         cout << "================================================="<< endl;
-        cout << "1. Attack Enemy"<< endl;
+        cout << "1. Attack Enemy with your "<< player.getWeapon() << endl;
         cout << "2. Flee"<< endl;
         cin >> fightMenuSelection;
         if(fightMenuSelection == 1){
             bool isDeadEnemy = calcAttack();
             if(isDeadEnemy){
-                cout << "Your Opponent has Perished.";
+                cout << "Your Opponent has Perished."<< endl;
+                break;
+            }
+            bool isDeadPlayer = calcEnemyAttack();
+            if(isDeadPlayer){
+                cout << "You have Died"<< endl;
                 break;
             }
         }
         else if(fightMenuSelection == 2){
-            cout << "You successfully escaped";
+            cout << "You successfully escaped"<< endl;
             break;
         }
         else{
@@ -136,22 +142,64 @@ bool RunGame::calcAttack(){
     srand(time(0));
     int attackRoll = rand() % 20 + 1;
     if (attackRoll < 3){
-        cout << "You Missed";
+        cout << "You Missed"<< endl;
         return false;
     }
-    if (attackRoll == 20){
-        int damageOutput = player.getWeaponDamage()+attackRoll;
+    if (attackRoll > 17 && attackRoll < 20){
+        int damageOutput = player.getWeaponDamage()+attackRoll+10;
         int enemyHealth = enemy.getHealth()-damageOutput;
+        enemy.SetHealth(enemyHealth);
         cout << "CRITICAL HIT! You hit your opponent for " << damageOutput << endl;
-        if(enemyHealth < 0){
-            cout << "Your Opponent has perished" << endl;
+        if(enemyHealth <= 0){
+            return true;
         }
-        cout << "Your opponent flinched and wasn't able to attack." << endl;
-
-
+        return false;
     }
+    if(attackRoll == 20){
+        int damageOutput = (player.getWeaponDamage()+attackRoll+10)*2;
+        int enemyHealth = enemy.getHealth()-damageOutput;
+        enemy.SetHealth(enemyHealth);
+        cout << "DOUBLE HIT! You hit your opponent twice for a total of " << damageOutput << endl;
+        if(enemyHealth <= 0){
+            return true;
+        }
+        return false;
+    }
+    int damageOutput = player.getWeaponDamage()+attackRoll;
+    int enemyHealth = enemy.getHealth()-damageOutput;
+    enemy.SetHealth(enemyHealth);
+    cout << "You hit your opponent for " << damageOutput << endl;
+    if(enemyHealth <= 0){
+        return true;
+    }
+    return false;
+}
 
-    return ;
+bool RunGame::calcEnemyAttack(){
+    srand(time(0)+32432);
+    int attackRoll = rand() % 20 + 1;
+    if (attackRoll < 4){
+        cout << "Your Enemy Missed"<< endl;
+        return false;
+    }
+    if (attackRoll > 18){
+        int damageOutput = enemy.getWeaponDamage()+attackRoll+10;
+        int enemyHealth = player.getHealth()-damageOutput;
+        player.SetHealth(enemyHealth);
+        cout << "CRITICAL HIT! You have been hit for " << damageOutput << endl;
+        if(enemyHealth <= 0){
+            return true;
+        }
+        return false;
+    }
+    int damageOutput = enemy.getWeaponDamage()+attackRoll;
+    int enemyHealth = player.getHealth()-damageOutput;
+    player.SetHealth(enemyHealth);
+    cout << "You have been hit for " << damageOutput << endl;
+    if(enemyHealth <= 0){
+        return true;
+    }
+    return false;
 }
 
 void RunGame::AddPlayer(){
