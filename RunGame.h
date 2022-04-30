@@ -12,7 +12,7 @@
 #include "Human.h"
 #include "Elf.h"
 #include <fstream>
-
+#include <windows.h>
 using namespace std;
 
 class RunGame{
@@ -46,6 +46,8 @@ void RunGame::MainMenu(){
 
     int mainMenuSelection;
     while(true){
+        HANDLE h= GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(h,1);
         cout << "=================================================" << endl;
         cout << "=                   Main Menu                   =" << endl;
         cout << "=================================================" << endl;
@@ -79,6 +81,8 @@ void RunGame::GameMenu(){
     Character vChar;
     int mainMenuSelection;
     while(true){
+        HANDLE h= GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(h,3);
         cout << endl;
         cout << "================================================="<< endl;
         cout << "=                   Game Menu                   ="<< endl;
@@ -138,6 +142,8 @@ void RunGame::GameMenu(){
 void RunGame::FightMenu(){
     int fightMenuSelection;
     while(true){
+        HANDLE h= GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(h,4);
         cout << "================================================="<< endl;
         cout << "=                   Fight Menu                  ="<< endl;
         cout << "================================================="<< endl;
