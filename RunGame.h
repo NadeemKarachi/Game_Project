@@ -32,10 +32,11 @@ public:
     bool calcAttack();
     bool calcEnemyAttack();
     void GameMenu();
-    Character MakeChar(int characterChoice, bool isGenerated)
-;   Character CreateDwarf(bool isGenerated);
+    Character MakeChar(int characterChoice, bool isGenerated);
+    Character CreateDwarf(bool isGenerated);
     Character CreateHuman(bool isGenerated);
     Character CreateElf(bool isGenerated);
+    string GenerateName();
 };
 
 RunGame::RunGame(){
@@ -120,8 +121,8 @@ void RunGame::FightMenu(){
         cout << "================================================="<< endl;
         cout << "=                  Fight Menu                   ="<< endl;
         cout << "================================================="<< endl;
-        cout << player.getName() << "'s Health:" << player.getHealth() << endl;
-        cout << enemy.getName() << "'s Health:" << enemy.getHealth() << endl;
+        cout << "Player: " << player.getName() << "'s Health:" << player.getHealth() << endl;
+        cout << "Enemy: " <<enemy.getName() << "'s Health:" << enemy.getHealth() << endl;
         cout << "================================================="<< endl;
         cout << "1. Attack Enemy with your "<< player.getWeapon() << endl;
         cout << "2. Flee"<< endl;
@@ -255,7 +256,7 @@ Character RunGame::CreateDwarf(bool isGenerated){
     int weaponChoice;
     srand(time(0));
     if (isGenerated)
-        charName = "Enemy Dwarf";
+        charName = GenerateName();
 
     else {
         cout << "You have selected Dwarf!" << endl;
@@ -303,7 +304,7 @@ Character RunGame::CreateHuman(bool isGenerated) {
     int weaponChoice;
     srand(time(0));
     if (isGenerated)
-        charName = "Enemy Human";
+        charName = GenerateName();
     else {
         cout << "You have selected Human!" << endl;
         cout << "NAME YOUR HUMAN!" << endl;
@@ -348,7 +349,7 @@ Character RunGame::CreateElf(bool isGenerated){
     int weaponChoice;
     srand(time(0));
     if(isGenerated)
-        charName = "Enemy Elf";
+        charName = GenerateName();
     else{
         cout << "You have selected Elf!" << endl;
         cout << "GIVE A NAME TO THE ELF!" << endl;
@@ -385,6 +386,25 @@ Character RunGame::CreateElf(bool isGenerated){
         vElf.setStrength(10);
     }
     return vElf;
+}
+
+string RunGame::GenerateName(){
+    string names [150];
+    int cnt = 0;
+    string line;
+    ifstream myfile( "generatableNames.txt" );
+    if (myfile){
+        while (getline( myfile, line )){
+            names[cnt] = line;
+            cnt++;
+        }
+        myfile.close();
+    }
+    else
+        cout << "File coudl not be read";
+
+    srand(time(0)+3214);
+    return names[rand() % 150 + 1];
 }
 
 #endif
