@@ -32,6 +32,7 @@ public:
     bool calcAttack();
     bool calcEnemyAttack();
     void GameMenu();
+    void getGame();
     Character MakeChar(int characterChoice, bool isGenerated);
     Character CreateDwarf(bool isGenerated);
     Character CreateHuman(bool isGenerated);
@@ -59,13 +60,8 @@ void RunGame::MainMenu(){
             GameMenu();
         }
         else if(mainMenuSelection == 2){
-            //TODO: Set up save games and continue games
-            ofstream output("Player1.txt");
-            output << player.getName() <<endl;
-            output << player.getRace() <<endl;
-            output << player.getHealth() << endl;
-            output << player.getWeapon() << endl;
-            output << player.getWeaponDamage() << endl;
+            getGame();
+            GameMenu();
         }
         else if(mainMenuSelection == 3){
             break;
@@ -111,6 +107,7 @@ void RunGame::GameMenu(){
             output << player.getHealth() << endl;
             output << player.getWeapon() << endl;
             output << player.getWeaponDamage() << endl;
+            cout <<  "Saved Successfully" << endl;
         }
         else if(mainMenuSelection == 4){
             break;
@@ -127,7 +124,7 @@ void RunGame::FightMenu(){
     int fightMenuSelection;
     while(true){
         cout << "================================================="<< endl;
-        cout << "=                  Fight Menu                   ="<< endl;
+        cout << "=                   Fight Menu                  ="<< endl;
         cout << "================================================="<< endl;
         cout << "Player: " << player.getName() << "'s Health:" << player.getHealth() << endl;
         cout << "Enemy: " <<enemy.getName() << "'s Health:" << enemy.getHealth() << endl;
@@ -269,8 +266,10 @@ Character RunGame::CreateDwarf(bool isGenerated){
     else {
         cout << "You have selected Dwarf!" << endl;
         cout << "GIVE A NAME TO THE DWARF!" << endl;
-        cin >> charName;
+        cin.ignore();
+        getline(cin,charName);
     }
+
 
     vDwarf.SetName(charName);
     vDwarf.SetRace("Dwarf");
@@ -316,7 +315,8 @@ Character RunGame::CreateHuman(bool isGenerated) {
     else {
         cout << "You have selected Human!" << endl;
         cout << "NAME YOUR HUMAN!" << endl;
-        cin >> charName;
+        cin.ignore();
+        getline(cin,charName);
     }
     vHum.SetName(charName);
     vHum.SetRace("Human");
@@ -361,14 +361,15 @@ Character RunGame::CreateElf(bool isGenerated){
     else{
         cout << "You have selected Elf!" << endl;
         cout << "GIVE A NAME TO THE ELF!" << endl;
-        cin >> charName;
+        cin.ignore();
+        getline(cin,charName);
     }
     vElf.SetName(charName);
     vElf.SetRace("Elf");
     vElf.SetHealth(200);
     while (true) {
         if(isGenerated)
-            weaponChoice = rand() % 3;
+            weaponChoice = rand() % 3 + 1;
         else{
             cout << "Please select a weapon for " << charName << endl;
             cout << "1. Bow&Arrow" << endl << "2. Sword" << endl << "3. Javelin" << endl;
@@ -415,4 +416,24 @@ string RunGame::GenerateName(){
     return names[rand() % 150 + 1];
 }
 
+void RunGame::getGame(){
+    string line;
+    ifstream myfile( "Player1.txt" );
+    if (myfile){
+        getline( myfile, line);
+        player.SetName(line);
+        getline( myfile, line);
+        player.SetRace(line);
+        getline( myfile, line);
+        player.SetHealth(stoi(line));
+        getline( myfile, line);
+        player.setWeapon(line);
+        getline( myfile, line);
+        player.setWeaponDamage(stoi(line));
+        myfile.close();
+    }
+    else
+        cout << "File coudl not be read";
+
+}
 #endif
