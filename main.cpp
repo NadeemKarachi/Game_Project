@@ -15,9 +15,6 @@
 using namespace std;
 
 int main() {
-    Character vChar;
+
     RunGame game;
-    //Testing Character Creation
-    //game.AddPlayer();
-    game.MakeEnemy();
 }

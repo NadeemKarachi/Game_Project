@@ -13,6 +13,7 @@
 #include "Dwarf.h"
 #include "Human.h"
 #include "Elf.h"
+#include <fstream>
 
 using namespace std;
 
@@ -57,6 +58,9 @@ void RunGame::MainMenu(){
         }
         else if(mainMenuSelection == 2){
             //TODO: Set up save games and continue games
+            ofstream outfile;
+            outfile.open("Player1.txt", ios::out);
+            player.PrintPlayer(outfile);
         }
         else if(mainMenuSelection == 3){
             break;
@@ -140,14 +144,14 @@ bool RunGame::calcAttack(){
         int enemyHealth = enemy.getHealth()-damageOutput;
         cout << "CRITICAL HIT! You hit your opponent for " << damageOutput << endl;
         if(enemyHealth < 0){
-            cout << "Your Opponent has perished"
+            cout << "Your Opponent has perished" << endl;
         }
-        cout << "Your opponent flinched and wasn't able to attack.";
+        cout << "Your opponent flinched and wasn't able to attack." << endl;
 
-        return;
+
     }
 
-
+    return ;
 }
 
 void RunGame::AddPlayer(){

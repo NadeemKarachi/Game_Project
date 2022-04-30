@@ -54,6 +54,7 @@ public:
     virtual void setStrength(int strength);
     void setConstitution(int constitution);
     void setDexterity(int dexterity);
+    void PrintPlayer(std::ostream& out);
 
     virtual void setIntelligence(int intelligence);
     void setWisdom(int wisdom);
@@ -66,6 +67,7 @@ public:
     void setWeapon(const string &weapon);
     int getWeaponDamage() const;
     void setWeaponDamage(int weaponDamage);
+
 };
 
 Character::Character(){
@@ -130,6 +132,14 @@ void Character::Print()
     cout<<"Health: "<< health <<endl;
 }
 
+void Character::PrintPlayer(std::ostream& out)
+{
+    cout<<"Character Status: "<<endl;
+    cout<<"Name: "<< getName() <<endl;
+    cout<<"Race: "<< getRace() <<endl;
+    cout<<"Level: "<< level <<endl;
+    cout<<"Health: "<< health <<endl;
+}
 //Attributes Getters and Setters
 int Character::getStrength() const {
     return strength;
